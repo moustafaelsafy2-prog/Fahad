@@ -4,23 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>New Castle Contracting & General Maintenance</title>
-  <meta name="description" content="مقاولات عامة وصيانة في أبوظبي — نبني الثقة ونسلّم الجودة منذ 2008. حلول متكاملة من التصميم حتى التسليم." />
+  <meta name="description" content="مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم. نبني الثقة ونسلّم الجودة منذ 2008." />
   <meta property="og:title" content="New Castle Contracting & General Maintenance" />
-  <meta property="og:description" content="مقاولات عامة وصيانة في أبوظبي — نبني الثقة ونسلّم الجودة منذ 2008." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1487956382158-bb926046304a?q=80&w=1600&auto=format&fit=crop" />
+  <meta property="og:description" content="حلول مقاولات وصيانة متكاملة في أبوظبي بجودة عالية وسلامة أولاً." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1600&auto=format&fit=crop" />
   <meta name="theme-color" content="#0B4DA2" />
   <link rel="icon" href="https://fav.farm/🏗️" />
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="lang-ar">
   <!-- Header -->
   <header class="header">
     <div class="container header__inner">
-      <a href="#" class="logo" aria-label="New Castle">
+      <a href="#home" class="logo" aria-label="New Castle">
         <span class="logo__mark">NC</span>
         <span class="logo__text" data-i18n="brand">New Castle</span>
       </a>
@@ -29,12 +26,11 @@
         <a href="#about" class="nav__link" data-i18n="nav.about">من نحن</a>
         <a href="#services" class="nav__link" data-i18n="nav.services">الخدمات</a>
         <a href="#projects" class="nav__link" data-i18n="nav.projects">المشاريع</a>
-        <a href="#partners" class="nav__link" data-i18n="nav.partners">الشركاء</a>
         <a href="#qhse" class="nav__link" data-i18n="nav.qhse">الجودة والسلامة</a>
         <a href="#contact" class="nav__link nav__cta" data-i18n="nav.contact">تواصل</a>
       </nav>
       <div class="header__actions">
-        <button class="btn btn--ghost" id="langToggle" aria-label="تبديل اللغة">EN</button>
+        <button class="btn btn--ghost" id="langToggle" aria-label="Language toggle">EN</button>
         <button class="hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -44,20 +40,31 @@
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <div class="hero__media" role="img" aria-label="Modern villa facade"></div>
-    <div class="container hero__content">
-      <h1 class="hero__title" data-i18n="hero.title">نبني الثقة ونسلّم الجودة منذ 2008</h1>
-      <p class="hero__subtitle" data-i18n="hero.subtitle">مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم، بأعلى معايير السلامة والجودة.</p>
-      <div class="hero__ctas">
-        <a href="#contact" class="btn btn--primary" data-i18n="cta.quote">احصل على عرض سعر</a>
-        <a href="https://wa.me/971502402894" target="_blank" class="btn btn--secondary" data-i18n="cta.whatsapp" rel="noopener">تواصل عبر واتساب</a>
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__grid">
+      <div class="hero__content card--glass">
+        <h1 class="hero__title" data-i18n="hero.title">نبني الثقة ونسلّم الجودة منذ 2008</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
+          مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم، مع التزام صارم بالسلامة والجودة.
+        </p>
+        <div class="hero__pills">
+          <span class="pill" data-i18n="badge.trusted">خبرة موثوقة</span>
+          <span class="pill" data-i18n="badge.onTime">تسليم في الوقت</span>
+          <span class="pill" data-i18n="badge.quality">تشطيبات راقية</span>
+          <span class="pill" data-i18n="badge.safety">السلامة أولاً</span>
+        </div>
+        <div class="hero__ctas">
+          <a href="#contact" class="btn btn--primary" data-i18n="cta.quote">احصل على عرض سعر</a>
+          <a href="https://wa.me/971502402894" target="_blank" rel="noopener" class="btn btn--line" data-i18n="cta.whatsapp">تواصل عبر واتساب</a>
+        </div>
       </div>
-      <div class="hero__badges">
-        <span class="badge" data-i18n="badge.trusted">خبرة موثوقة</span>
-        <span class="badge" data-i18n="badge.onTime">تسليم في الوقت</span>
-        <span class="badge" data-i18n="badge.quality">جودة بلا تنازل</span>
-        <span class="badge" data-i18n="badge.safety">السلامة أولاً</span>
+      <div class="hero__showcase">
+        <figure class="showcase__item" aria-label="Residential villa facade"></figure>
+        <figure class="showcase__item showcase__item--two" aria-label="Commercial office interior fit-out"></figure>
       </div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <span>Villas</span><span>Offices</span><span>Warehouses</span><span>Fit-Out</span><span>Roads</span><span>Oil & Gas</span>
     </div>
   </section>
 
@@ -69,7 +76,7 @@
         <p class="lead" data-i18n="about.lead">
           تأسست نيو كاسل عام 2008 لتقديم حلول إنشائية وصيانة عالية الاعتمادية للقطاعات السكنية والتجارية والصناعية في أبوظبي، عبر فريق محترف وشراكات هندسية راسخة.
         </p>
-        <ul class="checklist">
+        <ul class="bullets">
           <li data-i18n="about.v1">النزاهة والشفافية</li>
           <li data-i18n="about.v2">التزام بالجودة</li>
           <li data-i18n="about.v3">التسليم في الوقت</li>
@@ -77,19 +84,10 @@
           <li data-i18n="about.v5">رضا العملاء</li>
         </ul>
       </div>
-      <div class="card stats" aria-label="Company stats">
-        <div class="stat">
-          <div class="stat__num">2008</div>
-          <div class="stat__label" data-i18n="about.since">نخدمكم منذ</div>
-        </div>
-        <div class="stat">
-          <div class="stat__num">3+</div>
-          <div class="stat__label" data-i18n="about.sectors">قطاعات (سكني/تجاري/صناعي)</div>
-        </div>
-        <div class="stat">
-          <div class="stat__num">24/7</div>
-          <div class="stat__label" data-i18n="about.support">سلامة وجودة</div>
-        </div>
+      <div class="stats card">
+        <div class="stat"><div class="stat__num">2008</div><div class="stat__label" data-i18n="about.since">نخدمكم منذ</div></div>
+        <div class="stat"><div class="stat__num">3+</div><div class="stat__label" data-i18n="about.sectors">قطاعات (سكني/تجاري/صناعي)</div></div>
+        <div class="stat"><div class="stat__num">100%</div><div class="stat__label" data-i18n="about.support">تركيز على الجودة والسلامة</div></div>
       </div>
     </div>
   </section>
@@ -97,33 +95,47 @@
   <!-- Services -->
   <section id="services" class="section section--muted">
     <div class="container">
-      <h2 class="section__title" data-i18n="services.title">خدماتنا</h2>
-      <div class="grid grid--3 services">
-        <div class="card service">
-          <div class="service__icon" aria-hidden="true">🏗️</div>
-          <h3 data-i18n="services.s1.title">المقاولات العامة</h3>
-          <p data-i18n="services.s1.desc">تنفيذ كامل لمشاريع الفلل والمكاتب والمستودعات من الدراسات حتى التسليم.</p>
-        </div>
-        <div class="card service">
-          <div class="service__icon" aria-hidden="true">🧰</div>
-          <h3 data-i18n="services.s2.title">الصيانة والتجديد</h3>
-          <p data-i18n="services.s2.desc">صيانة وقائية وتصحيحية وتجديد شامل مع خطط واضحة.</p>
-        </div>
-        <div class="card service">
-          <div class="service__icon" aria-hidden="true">🛣️</div>
-          <h3 data-i18n="services.s3.title">الطرق والبنية التحتية</h3>
-          <p data-i18n="services.s3.desc">حفريات، تمديدات، طبقات، وتصريف وفق أعلى المعايير.</p>
-        </div>
-        <div class="card service">
-          <div class="service__icon" aria-hidden="true">⚙️</div>
-          <h3 data-i18n="services.s4.title">مرافق النفط والغاز</h3>
-          <p data-i18n="services.s4.desc">أعمال مدنية/كهربية/ميكانيكية ضمن اشتراطات السلامة.</p>
-        </div>
-        <div class="card service">
-          <div class="service__icon" aria-hidden="true">🎨</div>
-          <h3 data-i18n="services.s5.title">التشطيبات والديكور</h3>
-          <p data-i18n="services.s5.desc">تصميم وتنفيذ تشطيبات راقية للمساحات السكنية والتجارية.</p>
-        </div>
+      <div class="section__head">
+        <h2 class="section__title" data-i18n="services.title">خدماتنا</h2>
+        <p class="section__subtitle" data-i18n="services.subtitle">حلول متكاملة من الهيكل حتى التسليم والتشغيل.</p>
+      </div>
+      <div class="services">
+        <!-- Each card includes a relevant curated image -->
+        <article class="service card">
+          <div class="service__media" style="background-image:url('https://images.unsplash.com/photo-1520440229-0d482fdf9e46?q=80&w=1600&auto=format&fit=crop');" aria-label="Concrete frame construction"></div>
+          <div class="service__body">
+            <h3 data-i18n="services.s1.title">المقاولات العامة</h3>
+            <p data-i18n="services.s1.desc">تنفيذ كامل لمشاريع الفلل والمكاتب والمستودعات من الدراسات حتى التسليم.</p>
+          </div>
+        </article>
+        <article class="service card">
+          <div class="service__media" style="background-image:url('https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1600&auto=format&fit=crop');" aria-label="Building maintenance and renovation work"></div>
+          <div class="service__body">
+            <h3 data-i18n="services.s2.title">الصيانة والتجديد</h3>
+            <p data-i18n="services.s2.desc">صيانة وقائية وتصحيحية وتجديد شامل مع خطط واضحة.</p>
+          </div>
+        </article>
+        <article class="service card">
+          <div class="service__media" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop');" aria-label="Road paving and compaction"></div>
+          <div class="service__body">
+            <h3 data-i18n="services.s3.title">الطرق والبنية التحتية</h3>
+            <p data-i18n="services.s3.desc">حفريات، تمديدات، طبقات، وتصريف وفق أعلى المعايير.</p>
+          </div>
+        </article>
+        <article class="service card">
+          <div class="service__media" style="background-image:url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1600&auto=format&fit=crop');" aria-label="Oil and gas industrial site with safety compliance"></div>
+          <div class="service__body">
+            <h3 data-i18n="services.s4.title">مرافق النفط والغاز</h3>
+            <p data-i18n="services.s4.desc">أعمال مدنية/كهربية/ميكانيكية ضمن اشتراطات السلامة.</p>
+          </div>
+        </article>
+        <article class="service card">
+          <div class="service__media" style="background-image:url('https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1600&auto=format&fit=crop');" aria-label="Premium interior fit-out"></div>
+          <div class="service__body">
+            <h3 data-i18n="services.s5.title">التشطيبات والديكور</h3>
+            <p data-i18n="services.s5.desc">تصميم وتنفيذ تشطيبات راقية للمساحات السكنية والتجارية.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -131,85 +143,87 @@
   <!-- Projects -->
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section__title" data-i18n="projects.title">مشاريع مختارة</h2>
+      <div class="section__head">
+        <h2 class="section__title" data-i18n="projects.title">مشاريع مختارة</h2>
+        <p class="section__subtitle" data-i18n="projects.subtitle">عينات تمثّل جودة التنفيذ والتشطيب.</p>
+      </div>
       <div class="projects">
-        <div class="project card">
-          <div class="project__media project--p1" role="img" aria-label="Residential Villa – MBZ City"></div>
+        <article class="project card">
+          <a class="project__media" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c59a?q=80&w=1600&auto=format&fit=crop');" aria-label="Residential Villa – MBZ City"></a>
           <div class="project__body">
             <h3 data-i18n="projects.p1.title">فيلا سكنية – مدينة محمد بن زايد</h3>
             <p data-i18n="projects.p1.meta">الاستشاري: Al Itqan | أبوظبي</p>
           </div>
-        </div>
-        <div class="project card">
-          <div class="project__media project--p2" role="img" aria-label="Outdoor Majlis & Bedroom Extension – West 25 "></div>
+        </article>
+        <article class="project card">
+          <a class="project__media" style="background-image:url('https://images.unsplash.com/photo-1598300183295-0e5d0f02a9a5?q=80&w=1600&auto=format&fit=crop');" aria-label="Outdoor Majlis & Bedroom Extension – West 25"></a>
           <div class="project__body">
             <h3 data-i18n="projects.p2.title">مجلس خارجي وتمديد غرفة – West 25</h3>
             <p data-i18n="projects.p2.meta">الاستشاري: Eastern Architecture | أبوظبي</p>
           </div>
-        </div>
-        <div class="project card">
-          <div class="project__media project--p3" role="img" aria-label="Villa – Al Bahia"></div>
+        </article>
+        <article class="project card">
+          <a class="project__media" style="background-image:url('https://images.unsplash.com/photo-1505691723518-36a5ac3b2b8f?q=80&w=1600&auto=format&fit=crop');" aria-label="Villa – Al Bahia"></a>
           <div class="project__body">
             <h3 data-i18n="projects.p3.title">فيلا – الباهية</h3>
             <p data-i18n="projects.p3.meta">الاستشاري: Al Khail | أبوظبي</p>
           </div>
-        </div>
-        <div class="project card">
-          <div class="project__media project--p4" role="img" aria-label="Office Building & Shops – Area M36"></div>
+        </article>
+        <article class="project card">
+          <a class="project__media" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop');" aria-label="Office Building & Shops – Area M36"></a>
           <div class="project__body">
             <h3 data-i18n="projects.p4.title">مبنى مكاتب ومحلات – منطقة M36</h3>
             <p data-i18n="projects.p4.meta">الاستشاري: Dar Al-Handasah | أبوظبي</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partners -->
-  <section id="partners" class="section section--muted">
-    <div class="container">
-      <h2 class="section__title" data-i18n="partners.title">شركاؤنا</h2>
-      <div class="partners">
-        <div class="partner card">Dar Al-Handasah</div>
-        <div class="partner card">Western Engineering</div>
-        <div class="partner card">Al Amara Al Sharqiya</div>
-        <div class="partner card">Al Khail Engineering</div>
-        <div class="partner card">Firas Engineering</div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- QHSE -->
-  <section id="qhse" class="section">
+  <section id="qhse" class="section section--layer">
     <div class="container">
-      <h2 class="section__title" data-i18n="qhse.title">الجودة والسلامة والاستدامة</h2>
-      <div class="grid grid--3">
-        <div class="card focus">
+      <div class="section__head">
+        <h2 class="section__title" data-i18n="qhse.title">الجودة والسلامة والاستدامة</h2>
+      </div>
+      <div class="qhse grid grid--3">
+        <div class="focus card">
+          <div class="focus__icon">✔️</div>
           <h3 data-i18n="qhse.q">الجودة</h3>
-          <p data-i18n="qhse.q.desc">عمليات مراقبة صارمة، مواد معتمدة، وإشراف ميداني مستمر.</p>
+          <p data-i18n="qhse.q.desc">عمليات ضبط صارمة، مواد معتمدة، إشراف ميداني مستمر.</p>
         </div>
-        <div class="card focus">
+        <div class="focus card">
+          <div class="focus__icon">🦺</div>
           <h3 data-i18n="qhse.h">السلامة</h3>
-          <p data-i18n="qhse.h.desc">سلامة الطواقم والمواقع أولاً وفق بروتوكولات محدّثة.</p>
+          <p data-i18n="qhse.h.desc">سلامة الطواقم والمواقع أولاً ضمن بروتوكولات محدّثة.</p>
         </div>
-        <div class="card focus">
+        <div class="focus card">
+          <div class="focus__icon">🌿</div>
           <h3 data-i18n="qhse.s">الاستدامة</h3>
-          <p data-i18n="qhse.s.desc">حلول فعّالة التكلفة صديقة للبيئة وتراعي استهلاك الموارد.</p>
+          <p data-i18n="qhse.s.desc">حلول فعّالة التكلفة وصديقة للبيئة وتقلل الهدر.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CTA Banner -->
+  <section class="cta">
+    <div class="container cta__inner card--glass">
+      <h3 data-i18n="cta.banner">جاهزون لتنفيذ مشروعك بالجودة التي تستحقها</h3>
+      <a href="#contact" class="btn btn--primary" data-i18n="cta.quote">احصل على عرض سعر</a>
+    </div>
+  </section>
+
   <!-- Contact -->
-  <section id="contact" class="section section--highlight">
+  <section id="contact" class="section section--muted">
     <div class="container grid grid--2">
       <div>
         <h2 data-i18n="contact.title">تواصل معنا</h2>
-        <p data-i18n="contact.subtitle">نسعد بخدمتكم في أبوظبي. املأ النموذج وسنعاودك خلال 24 ساعة.</p>
-        <ul class="contact-list" aria-label="Contact details">
-          <li><strong data-i18n="contact.phoneLabel">هاتف:</strong> <a href="tel:00971502402894">00971 50 240 2894</a></li>
-          <li><strong>Email:</strong> <a href="mailto:Newcastles.ae@gmail.com">Newcastles.ae@gmail.com</a></li>
-          <li><strong data-i18n="contact.whatsapp">واتساب:</strong> <a target="_blank" href="https://wa.me/971502402894" rel="noopener">00971 50 240 2894</a></li>
+        <p class="muted" data-i18n="contact.subtitle">نسعد بخدمتكم في أبوظبي. املأ النموذج وسنعاودك خلال 24 ساعة.</p>
+        <ul class="contact__list">
+          <li><strong data-i18n="contact.phoneLabel">هاتف:</strong> <span class="ltr"><a href="tel:+971502402894">+971 50 240 2894</a></span></li>
+          <li><strong>Email:</strong> <span class="ltr"><a href="mailto:Newcastles.ae@gmail.com">Newcastles.ae@gmail.com</a></span></li>
+          <li><strong data-i18n="contact.whatsapp">واتساب:</strong> <span class="ltr"><a target="_blank" rel="noopener" href="https://wa.me/971502402894">+971 50 240 2894</a></span></li>
           <li><strong data-i18n="contact.address">العنوان:</strong> UAE, Abu Dhabi</li>
         </ul>
       </div>
@@ -249,7 +263,6 @@
         <a href="#about" data-i18n="nav.about">من نحن</a>
         <a href="#services" data-i18n="nav.services">الخدمات</a>
         <a href="#projects" data-i18n="nav.projects">المشاريع</a>
-        <a href="#partners" data-i18n="nav.partners">الشركاء</a>
         <a href="#qhse" data-i18n="nav.qhse">الجودة والسلامة</a>
         <a href="#contact" data-i18n="nav.contact">تواصل</a>
       </div>
@@ -259,7 +272,7 @@
     </div>
   </footer>
 
-  <!-- Structured Data -->
+  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -273,7 +286,6 @@
   }
   </script>
 
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
