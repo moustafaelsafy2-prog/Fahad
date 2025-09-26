@@ -1,286 +1,328 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>القصور الحديثة | مقاولات وصيانة عامة في الإمارات</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>القصور الحديثة | مقاولات وصيانة عامة – الإمارات</title>
+<meta name="description" content="موقع سينمائي بواجهة شرائح لعرض خدمات المقاولات والصيانة في الإمارات (أبوظبي). تنفيذ بجودة عالية وتشطيبات فاخرة وعقود صيانة موثوقة.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet"/>
 
-  <meta name="description" content="القصور الحديثة: مقاولات عامة وصيانة متكاملة للفلل والمباني في الإمارات (أبوظبي). تنفيذ بجودة عالية، وتسليم في الوقت، وخدمات صيانة موثوقة." />
-  <meta name="keywords" content="مقاولات, صيانة عامة, الإمارات, أبوظبي, صيانة فلل, تشطيبات, ترميم, كهرباء, سباكة, تكييف" />
-  <link rel="canonical" href="https://example.com/" />
+<style>
+:root{
+  --gold:#d8b36b;--gold-2:#b99755;--bg:#0b0c0d;--ink:#f5f6f7;--muted:#aeb4bc;
+  --glass:rgba(0,0,0,.45);--edge:#23262b;--shadow:0 12px 50px rgba(0,0,0,.45)
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
 
-  <meta property="og:title" content="القصور الحديثة | مقاولات وصيانة عامة في الإمارات" />
-  <meta property="og:description" content="نبني المستقبل ونحافظ على رفاهيته. حلول مقاولات وصيانة متكاملة بلمسة فاخرة." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://source.unsplash.com/1200x630/?architecture,luxury" />
-  <meta property="og:url" content="https://example.com/" />
+/* ===== PowerPoint-like Slides ===== */
+main{height:100svh;scroll-snap-type:y mandatory;overflow-y:auto;scroll-behavior:smooth}
+.slide{position:relative;height:100svh;min-height:640px;scroll-snap-align:start;display:grid;place-items:center;overflow:hidden}
+.slide .layer{position:absolute;inset:0}
+.slide .content{
+  position:relative;z-index:3;max-width:1200px;margin:auto;padding:24px;
+  text-align:center
+}
+.kicker{color:var(--gold);font-weight:900;letter-spacing:.5px;margin-bottom:8px}
+h1,h2{margin:.2em 0}
+h1{font-size:clamp(28px,4.5vw,64px);font-weight:900}
+h2{font-size:clamp(24px,3vw,40px);font-weight:900}
+.lead{max-width:900px;margin:6px auto 18px;color:#d7d9dc}
+.btn{display:inline-flex;gap:10px;align-items:center;padding:14px 18px;border-radius:14px;border:1px solid #2a2d33;background:linear-gradient(180deg,#171a1f,#0f1114);box-shadow:var(--shadow)}
+.btn.gold{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#1a1a1a;border:0;font-weight:900}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid #2b2f35;border-radius:999px;background:#121418}
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+/* Cinematic overlays */
+.vignette::after{content:"";position:absolute;inset:0;z-index:2;
+  background:radial-gradient(ellipse at center, rgba(0,0,0,.1) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.88) 100%)}
+.backdrop{backdrop-filter:saturate(120%) blur(6px);background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px;display:inline-block}
 
-  <style>
-    :root{--gold:#d8b36b;--gold-2:#b99755;--dark:#111213;--white:#fff;--muted:#9da3ab;--shadow:0 10px 40px rgba(0,0,0,.35)}
-    *{box-sizing:border-box} html,body{margin:0;background:var(--dark);color:var(--white);font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
-    a{color:inherit;text-decoration:none} img{max-width:100%;display:block} section{padding:80px 24px} .container{max-width:1200px;margin:auto}
-    header{position:fixed;top:0;inset-inline:0;z-index:1000;background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,0));backdrop-filter:saturate(120%) blur(6px)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900}
-    .logo{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold),var(--gold-2));box-shadow:inset 0 0 18px rgba(255,255,255,.25),0 0 24px rgba(216,179,107,.25)}
-    .nav a.btn{padding:10px 16px;border:1px solid var(--gold);border-radius:999px} .cta-primary{background:var(--gold);color:#121212;border-color:var(--gold);font-weight:800}
-    .nav-links{display:flex;gap:14px;align-items:center} @media (max-width:720px){.nav-links{display:none}}
+/* Background image helpers */
+.bg{background-position:center;background-size:cover;filter:contrast(1.06) saturate(1.06) brightness(.9)}
+.slide-hero .bg{background-image:url('https://source.unsplash.com/1600x900/?dubai,construction');}
 
-    .hero{position:relative;height:100svh;min-height:560px;display:grid;place-items:center;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:url('https://source.unsplash.com/1600x900/?dubai,construction') center/cover no-repeat;filter:contrast(1.05) saturate(1.05) brightness(.8)}
-    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.08) 0%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.85) 100%)}
-    .hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:0 24px}
-    .kicker{color:var(--gold);font-weight:800;letter-spacing:.6px;margin-bottom:10px}
-    .hero h1{font-size:clamp(28px,3.8vw,56px);margin:0 0 10px;font-weight:900} .hero p{color:#d7d9dc;max-width:720px;margin:0 auto 24px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;border:1px solid #2a2d33;background:linear-gradient(180deg,#181a1f,#0f1114);color:#f3f4f6;box-shadow:var(--shadow);transition:transform .2s ease}
-    .btn:hover{transform:translateY(-2px)} .btn.gold{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#1a1a1a;border:0;font-weight:900}
+/* Header (floating) */
+header{
+  position:fixed;top:0;inset-inline:0;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:10px 16px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0))
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}
+.logo{width:38px;height:38px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, var(--gold), var(--gold-2));
+  box-shadow:inset 0 0 18px rgba(255,255,255,.25), 0 0 24px rgba(216,179,107,.25)
+}
+.nav{display:flex;gap:10px;align-items:center}
+@media (max-width:760px){.nav{display:none}}
 
-    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center} @media (max-width:960px){.grid-2{grid-template-columns:1fr}}
-    .card{border:1px solid #26282e;border-radius:16px;padding:22px;background:linear-gradient(180deg,#0f1114 0%, #0b0c0d 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02), var(--shadow)}
-    .title{font-size:clamp(22px,2.4vw,34px);margin:0 0 10px} .lead{color:#cfd3d8}
-    .bullets{display:grid;gap:10px;margin:16px 0} .chip{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid #2b2f35;background:#121418;color:#e5e7eb}
+/* Services Grid */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1200px;margin:auto}
+@media (max-width:1100px){.services{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:800px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.services{grid-template-columns:1fr}}
+.card{
+  background:linear-gradient(180deg,#111418,#0b0c0d);border:1px solid var(--edge);border-radius:16px;padding:18px;text-align:start
+}
+.card h3{margin:8px 0}
+.card p{color:#c9ced5}
 
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px}
-    .section-head h2{margin:0;font-size:clamp(22px,2.4vw,34px)}
-    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    @media (max-width:1100px){.services{grid-template-columns:repeat(3,1fr)}}
-    @media (max-width:780px){.services{grid-template-columns:repeat(2,1fr)}} @media (max-width:520px){.services{grid-template-columns:1fr}}
-    .service{border:1px solid #26282e;border-radius:16px;padding:18px;background:linear-gradient(180deg,#13151a,#0b0c0d)}
-    .service h3{margin:8px 0 6px} .service p{color:#c7cbd0} .service .tag{font-size:12px;background:#111;border:1px solid #2e2e2e;padding:4px 8px;border-radius:999px;color:var(--gold)}
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1200px;margin:auto}
+@media (max-width:960px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.gallery{grid-template-columns:1fr}}
+.gallery a{border:1px solid var(--edge);border-radius:16px;overflow:hidden;background:#0d0f13}
+.gallery img{aspect-ratio:16/10;object-fit:cover;transition:transform .25s ease}
+.gallery a:hover img{transform:scale(1.04)}
 
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
-    @media (max-width:780px){.stats{grid-template-columns:repeat(2,1fr)}} .stat{border:1px solid #26282e;border-radius:16px;padding:18px;text-align:center;background:linear-gradient(180deg,#0f1114,#0b0c0d)}
-    .stat .num{font-size:clamp(24px,2.6vw,36px);font-weight:900;color:var(--gold)} .stat .lbl{color:#cfd3d8}
+/* Testimonials */
+.scroller{display:flex;gap:14px;overflow:auto;scroll-snap-type:x mandatory;padding:10px 0}
+.tcard{min-width:340px;scroll-snap-align:center;border:1px solid var(--edge);border-radius:16px;padding:18px;background:linear-gradient(180deg,#121418,#0b0c0d)}
 
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
-    @media (max-width:960px){.gallery{grid-template-columns:repeat(2,1fr)}} @media (max-width:640px){.gallery{grid-template-columns:1fr}}
-    .gallery a{border:1px solid #26282e;border-radius:16px;overflow:hidden;background:#0d0f13}
-    .gallery img{aspect-ratio:16/10;object-fit:cover;transition:transform .25s ease} .gallery a:hover img{transform:scale(1.04)}
+/* Contact */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;max-width:1200px;margin:auto}
+@media (max-width:960px){.contact{grid-template-columns:1fr}}
+.form input,.form select,.form textarea{width:100%;background:#0f1114;border:1px solid #2a2d33;color:#e5e7eb;border-radius:12px;padding:12px 14px;margin:8px 0}
+.form button{width:100%}
 
-    .testimonials{scroll-snap-type:x mandatory;display:flex;gap:14px;overflow:auto;padding-bottom:6px}
-    .t-card{min-width:330px;scroll-snap-align:center;border:1px solid #26282e;border-radius:16px;padding:18px;background:linear-gradient(180deg,#121418,#0b0c0d)}
-    .t-head{display:flex;align-items:center;gap:12px}.avatar{width:44px;height:44px;border-radius:50%;background:#222;border:1px solid #333}
+/* Dots / Progress */
+#dots{position:fixed;inset-inline-end:14px;top:50%;transform:translateY(-50%);z-index:11;display:grid;gap:8px}
+#dots button{width:10px;height:10px;border-radius:50%;border:1px solid var(--edge);background:#1a1d22;opacity:.6}
+#dots button.active{background:var(--gold);opacity:1}
 
-    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:18px} @media (max-width:960px){.contact{grid-template-columns:1fr}}
-    .form input,.form select,.form textarea{width:100%;background:#0f1114;border:1px solid #2a2d33;color:#e5e7eb;border-radius:12px;padding:12px 14px;margin:8px 0;outline:none}
-    .form button{width:100%}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #2b2f35;border-radius:999px;background:#121418;color:#e5e7eb}
-    footer{padding:28px 24px;border-top:1px solid #23262b;background:#0b0c0d;color:#cfd3d8}
-
-    .reveal{opacity:0;transform:translateY(14px);transition:all .6s cubic-bezier(.2,.65,.2,1)}
-    .reveal.visible{opacity:1;transform:none}
-
-    .wa{position:fixed;inset-inline-end:18px;bottom:18px;z-index:1000;background:#25D366;border-radius:999px;box-shadow:var(--shadow)}
-    .wa a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#0b0c0d;font-weight:800}
-    .wa svg{width:22px;height:22px}
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ConstructionCompany",
-    "name":"القصور الحديثة",
-    "description":"مقاولات عامة وصيانة متكاملة في الإمارات.",
-    "areaServed":"AE",
-    "url":"https://example.com/",
-    "telephone":"+971-50-240-2894",
-    "email":"newcastles.ae@gmail.com",
-    "address":{"@type":"PostalAddress","addressCountry":"AE","addressLocality":"Abu Dhabi"},
-    "sameAs":[]
-  }
-  </script>
+/* Floating WhatsApp */
+.wa{position:fixed;inset-inline-end:18px;bottom:18px;z-index:12;background:#25D366;border-radius:999px;box-shadow:var(--shadow)}
+.wa a{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#0b0c0d;font-weight:900}
+.wa svg{width:22px;height:22px}
+footer{padding:18px 16px;border-top:1px solid var(--edge);text-align:center;color:#cfd3d8}
+.reveal{opacity:0;transform:translateY(16px);transition:all .7s cubic-bezier(.2,.65,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+</style>
 </head>
 <body>
 
-  <header>
-    <nav class="nav container">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <span>القصور الحديثة</span>
-      </div>
-      <div class="nav-links">
-        <a href="#about">من نحن</a>
-        <a href="#services">الخدمات</a>
-        <a href="#projects">المشاريع</a>
-        <a href="#testimonials">آراء العملاء</a>
-        <a href="#contact" class="btn cta-primary">احصل على عرض سعر</a>
-      </div>
-      <a class="btn" href="tel:+971502402894" aria-label="اتصل الآن">اتصل الآن</a>
-    </nav>
-  </header>
-
-  <!-- HERO مع صورة حيّة من الإنترنت + رابط المصدر -->
-  <section class="hero" id="home" aria-label="Hero">
-    <div class="hero-content">
-      <div class="kicker">مقاولات وصيانة عامة • الإمارات • أبوظبي</div>
-      <h1>نبني المستقبل ونحافظ على رفاهيته</h1>
-      <p>تنفيذ هندسي بمعايير عالمية، تشطيبات فاخرة، وعقود صيانة موثوقة للفلل والمباني التجارية في جميع إمارات الدولة.</p>
-      <div class="actions">
-        <a href="#contact" class="btn gold">احصل على عرض سعر الآن</a>
-        <a href="https://unsplash.com/s/photos/dubai-construction" target="_blank" rel="noopener" class="btn" aria-label="مصدر اللقطات">مصدر اللقطات</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="container">
-    <div class="grid-2">
-      <div class="card reveal">
-        <h2 class="title">من نحن</h2>
-        <p class="lead">«القصور الحديثة» شركة إماراتية في أبوظبي متخصصة في المقاولات العامة والصيانة المتكاملة، تُسلّم بجودة عالية وفي الوقت، مع التزام صارم بالسلامة.</p>
-        <div class="bullets">
-          <span class="chip">تنفيذ ضمن الجداول الزمنية</span>
-          <span class="chip">معايير جودة وسلامة صارمة</span>
-          <span class="chip">فريق هندسي وفني معتمد</span>
-          <span class="chip">خدمات ما بعد التسليم</span>
-        </div>
-      </div>
-      <div class="card reveal">
-        <h3 class="title" style="margin-top:0">مجالات عملنا</h3>
-        <p class="lead">فلل فاخرة، مشاريع سكنية وتجارية، إعادة تأهيل وترميم، عقود صيانة سنوية للمجمعات.</p>
-        <div class="stats">
-          <div class="stat"><div class="num" data-count="250">0</div><div class="lbl">مشروع ناجح</div></div>
-          <div class="stat"><div class="num" data-count="120">0</div><div class="lbl">فيلا مُسلمة</div></div>
-          <div class="stat"><div class="num" data-count="50">0</div><div class="lbl">مهندس وفني</div></div>
-          <div class="stat"><div class="num" data-count="7">0</div><div class="lbl">إمارات نخدمها</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="container">
-    <div class="section-head">
-      <h2>خدماتنا</h2>
-      <span class="badge">جاهزون للتنفيذ الفوري</span>
-    </div>
-    <div class="services">
-      <article class="service reveal"><span class="tag">مقاولات عامة</span><h3>بناء الفلل والمشاريع</h3><p>حلول شاملة من الحفر حتى التسليم، بإدارة مشاريع محكمة وجودة تنفيذ عالية.</p><a href="#contact" class="btn" style="margin-top:8px">اطلب عرض سعر</a></article>
-      <article class="service reveal"><span class="tag">صيانة</span><h3>كهرباء & سباكة & تكييف</h3><p>استجابة سريعة، قطع أصلية، وفِرق متخصصة لعقود الصيانة السنوية.</p><a href="#contact" class="btn" style="margin-top:8px">احجز زيارة</a></article>
-      <article class="service reveal"><span class="tag">تشطيبات</span><h3>تشطيبات داخلية وخارجية</h3><p>مواد فاخرة، دقة عالية في التفاصيل لتجربة معيشية راقية.</p><a href="#contact" class="btn" style="margin-top:8px">ابدأ مشروعك</a></article>
-      <article class="service reveal"><span class="tag">ما بعد التسليم</span><h3>ترميم وتحسين</h3><p>ترميم واجهات، تحسينات إنشائية، ورفع كفاءة الطاقة للمباني القائمة.</p><a href="#contact" class="btn" style="margin-top:8px">تواصل الآن</a></article>
-    </div>
-  </section>
-
-  <!-- PROJECTS مع صور حيّة وروابط المصدر -->
-  <section id="projects" class="container">
-    <div class="section-head">
-      <h2>نماذج أعمال (صور حيّة)</h2>
-      <span class="badge">روابط مباشرة للمصدر</span>
-    </div>
-    <div class="gallery">
-      <a class="reveal" href="https://unsplash.com/photos/1" target="_blank" rel="noopener" aria-label="مصدر الصورة">
-        <img src="https://source.unsplash.com/800x500/?villa,luxury" alt="فلل وتشطيبات فاخرة" loading="lazy">
-      </a>
-      <a class="reveal" href="https://unsplash.com/s/photos/construction-site" target="_blank" rel="noopener">
-        <img src="https://source.unsplash.com/800x500/?construction,site" alt="موقع إنشاءات" loading="lazy">
-      </a>
-      <a class="reveal" href="https://unsplash.com/s/photos/interior-design" target="_blank" rel="noopener">
-        <img src="https://source.unsplash.com/800x500/?interior,modern" alt="تصميم داخلي عصري" loading="lazy">
-      </a>
-      <a class="reveal" href="https://unsplash.com/s/photos/maintenance" target="_blank" rel="noopener">
-        <img src="https://source.unsplash.com/800x500/?maintenance,tools" alt="صيانة عامة" loading="lazy">
-      </a>
-      <a class="reveal" href="https://unsplash.com/s/photos/plumbing" target="_blank" rel="noopener">
-        <img src="https://source.unsplash.com/800x500/?plumbing" alt="سباكة" loading="lazy">
-      </a>
-      <a class="reveal" href="https://unsplash.com/s/photos/hvac" target="_blank" rel="noopener">
-        <img src="https://source.unsplash.com/800x500/?hvac,airconditioning" alt="تكييف" loading="lazy">
-      </a>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="container">
-    <div class="section-head">
-      <h2>آراء العملاء</h2>
-      <span class="badge">دليل الثقة</span>
-    </div>
-    <div class="testimonials">
-      <div class="t-card reveal"><div class="t-head"><div class="avatar"></div><div><strong>سالم.ن</strong><br><small style="color:var(--muted)">مالك فيلا – أبوظبي</small></div></div><p style="margin-top:10px;color:#d7d9dc">التنفيذ دقيق والتسليم في الموعد. تجربة ممتازة.</p></div>
-      <div class="t-card reveal"><div class="t-head"><div class="avatar"></div><div><strong>مها.خ</strong><br><small style="color:var(--muted)">شركة تطوير – دبي</small></div></div><p style="margin-top:10px;color:#d7d9dc">تشطيبات فاخرة وخدمة ما بعد التسليم فعّالة.</p></div>
-      <div class="t-card reveal"><div class="t-head"><div class="avatar"></div><div><strong>راشد.ع</strong><br><small style="color:var(--muted)">إدارة مجمعات – الشارقة</small></div></div><p style="margin-top:10px;color:#d7d9dc">عقود الصيانة وفّرت وقتًا وتكاليف ورفعت الجودة.</p></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="container">
-    <div class="section-head">
-      <h2>تواصل معنا</h2>
-      <span class="badge">رد سريع خلال ساعات العمل</span>
-    </div>
-    <div class="contact">
-      <div class="card reveal form">
-        <form onsubmit="return sendWhatsApp(event)">
-          <label>الاسم</label><input type="text" id="name" required placeholder="اكتب اسمك الكامل" />
-          <label>رقم الهاتف</label><input type="tel" id="phone" required placeholder="مثال: 050xxxxxxx" />
-          <label>نوع الخدمة</label>
-          <select id="service">
-            <option>مقاولات عامة</option><option>صيانة (كهرباء/سباكة/تكييف)</option>
-            <option>تشطيبات داخلية</option><option>ترميم وتحسين</option>
-          </select>
-          <label>تفاصيل مختصرة</label><textarea id="message" rows="4" placeholder="اذكر المدينة، المساحة، ونطاق العمل"></textarea>
-          <button class="btn gold" type="submit">إرسال عبر واتساب</button>
-        </form>
-        <small style="color:#9aa0a6;display:block;margin-top:10px">بالضغط على الإرسال، سيتم فتح محادثة واتساب مسبقة التعبئة.</small>
-      </div>
-
-      <div class="card reveal">
-        <h3 class="title" style="margin-top:0">معلومات الاتصال</h3>
-        <div class="bullets">
-          <span class="chip">الهاتف: <a href="tel:+971502402894">+971 50 240 2894</a></span>
-          <span class="chip">الواتساب: <a href="https://wa.me/971502402894" target="_blank" rel="noopener">wa.me/971502402894</a></span>
-          <span class="chip">البريد: <a href="mailto:newcastles.ae@gmail.com">newcastles.ae@gmail.com</a></span>
-          <span class="chip">العنوان: الإمارات – أبوظبي</span>
-          <span class="chip"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Abu%20Dhabi%2C%20UAE">افتح الموقع على الخريطة</a></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <small>© <span id="year"></span> القصور الحديثة — جميع الحقوق محفوظة</small>
-      <small>مقاولات عامة • صيانة متكاملة • تشطيبات</small>
-    </div>
-  </footer>
-
-  <!-- زر واتساب عائم مفعّل بالرقم المستخرج -->
-  <div class="wa">
-    <a id="wa-float" href="https://wa.me/971502402894" target="_blank" rel="noopener" aria-label="تواصل واتساب">
-      <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.19c-.27-.14-1.6-.79-1.84-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.2-1.35-.81-.72-1.35-1.6-1.51-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.46-.84-2-.22-.53-.43-.46-.61-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.84.14.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.64.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/><path d="M26.99 5.02A13.9 13.9 0 0 0 16.02 1 13.93 13.93 0 0 0 2.09 14.02c0 2.46.64 4.85 1.86 6.96L2 31l10.2-2.68a14.02 14.02 0 0 0 6.87 1.77h.01A13.93 13.93 0 0 0 30 14.98 13.9 13.9 0 0 0 26.99 5.02z"/></svg>
-      <span>واتساب</span>
-    </a>
+<header>
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div><span>القصور الحديثة</span>
   </div>
+  <div class="nav">
+    <a href="#s1" class="btn">الرئيسية</a>
+    <a href="#s2" class="btn">الخدمات</a>
+    <a href="#s3" class="btn">المعرض</a>
+    <a href="#s4" class="btn">آراء</a>
+    <a href="#s5" class="btn gold">عرض السعر</a>
+  </div>
+</header>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<!-- Progress Dots -->
+<div id="dots" aria-hidden="true"></div>
 
-    const revealEls=[...document.querySelectorAll('.reveal')];
-    const io=new IntersectionObserver((entries)=>{entries.forEach(ent=>{if(ent.isIntersecting){ent.target.classList.add('visible');io.unobserve(ent.target)}})},{threshold:.15});
-    revealEls.forEach(el=>io.observe(el));
+<main id="slides">
 
-    const counters=[...document.querySelectorAll('.stat .num')];
-    const io2=new IntersectionObserver((entries)=>{entries.forEach(ent=>{if(ent.isIntersecting){const el=ent.target;const target=+el.getAttribute('data-count');let cur=0;const step=Math.ceil(target/60);const inc=()=>{cur+=step;if(cur>target)cur=target;el.textContent=cur.toLocaleString('ar-EG');if(cur<target)requestAnimationFrame(inc)};inc();io2.unobserve(el)}})},{threshold:.6});
-    counters.forEach(c=>io2.observe(c));
+  <!-- SLIDE 1: HERO VIDEO 4K -->
+  <section id="s1" class="slide slide-hero vignette">
+    <!-- YouTube background (4K construction) -->
+    <div class="layer" id="yt-bg" style="pointer-events:none;"></div>
+    <div class="layer bg" aria-hidden="true"></div>
+    <div class="content">
+      <div class="backdrop">
+        <div class="kicker">مقاولات وصيانة عامة • الإمارات • أبوظبي</div>
+        <h1>عرض سينمائي يضعك في الصدارة</h1>
+        <p class="lead">تنفيذ هندسي بمعايير عالمية، تشطيبات فاخرة، وعقود صيانة موثوقة للفلل والمشاريع التجارية — بتجربة عرض تشبه PowerPoint لكن على الويب.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="#s2" class="btn gold">استعرض الخدمات</a>
+          <a href="#s5" class="btn">احصل على عرض سعر</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function sendWhatsApp(e){
-      e.preventDefault();
-      const name=document.getElementById('name').value.trim();
-      const phone=document.getElementById('phone').value.trim();
-      const service=document.getElementById('service').value;
-      const msg=document.getElementById('message').value.trim();
-      const text=`القصور الحديثة | طلب عرض سعر
+  <!-- SLIDE 2: SERVICES (like PPT tiles) -->
+  <section id="s2" class="slide vignette">
+    <div class="layer" style="background:url('https://source.unsplash.com/1600x900/?luxury,villa') center/cover no-repeat;filter:brightness(.6)"></div>
+    <div class="content">
+      <div class="kicker">شرائح خدمات تفاعلية</div>
+      <h2>خدماتنا الرئيسية</h2>
+      <p class="lead">حلول كاملة من الفكرة للتسليم وما بعده — B2C & B2B.</p>
+      <div class="services reveal">
+        <div class="card"><span class="badge">مقاولات عامة</span><h3>بناء الفلل والمشاريع</h3><p>إدارة مشاريع محكمة من الحفر للتسليم ضمن الوقت والميزانية.</p></div>
+        <div class="card"><span class="badge">صيانة</span><h3>كهرباء • سباكة • تكييف</h3><p>استجابة سريعة وقطع أصلية وعقود صيانة سنوية.</p></div>
+        <div class="card"><span class="badge">تشطيبات</span><h3>داخلي وخارجي</h3><p>مواد فاخرة وتفاصيل دقيقة لنتيجة راقية.</p></div>
+        <div class="card"><span class="badge">ترميم وتحسين</span><h3>رفع كفاءة المباني</h3><p>واجهات، تحسينات إنشائية، وعزل وطاقة.</p></div>
+      </div>
+      <div style="margin-top:16px"><a href="#s3" class="btn gold">شاهد الأعمال</a></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: CINEMATIC REEL (video cards) -->
+  <section id="s3" class="slide vignette">
+    <div class="layer" style="background:url('https://source.unsplash.com/1600x900/?construction,site') center/cover no-repeat;filter:brightness(.55)"></div>
+    <div class="content">
+      <div class="kicker">Cinematic Reel</div>
+      <h2>لقطات واقعية 4K</h2>
+      <p class="lead">مشاهد ديناميكية للبناء والتشييد والتشطيبات — تشغيل تلقائي صامت.</p>
+      <div class="scroller reveal" id="reel"></div>
+      <div style="margin-top:14px"><a href="#s4" class="btn gold">آراء وثقة</a></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: TESTIMONIALS -->
+  <section id="s4" class="slide vignette">
+    <div class="layer" style="background:url('https://source.unsplash.com/1600x900/?interior,modern') center/cover no-repeat;filter:brightness(.55)"></div>
+    <div class="content">
+      <div class="kicker">دليل اجتماعي</div>
+      <h2>ماذا قال عملاؤنا؟</h2>
+      <div class="scroller reveal">
+        <div class="tcard"><strong>سالم.ن — مالك فيلا (أبوظبي)</strong><p style="color:#d7d9dc;margin:.6em 0 0">التنفيذ دقيق والتسليم في الموعد. تجربة مميزة من البداية للنهاية.</p></div>
+        <div class="tcard"><strong>مها.خ — شركة تطوير (دبي)</strong><p style="color:#d7d9dc;margin:.6em 0 0">تشطيبات فاخرة وخدمة ما بعد التسليم فعّالة جدًا.</p></div>
+        <div class="tcard"><strong>راشد.ع — إدارة مجمعات (الشارقة)</strong><p style="color:#d7d9dc;margin:.6em 0 0">عقود الصيانة وفّرت وقتًا وتكلفة ورفعت الجودة.</p></div>
+      </div>
+      <div style="margin-top:14px"><a href="#s5" class="btn gold">ابدأ الآن</a></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: GALLERY -->
+  <section id="s5" class="slide vignette">
+    <div class="layer" style="background:url('https://source.unsplash.com/1600x900/?architecture,luxury') center/cover no-repeat;filter:brightness(.55)"></div>
+    <div class="content">
+      <div class="kicker">معرض بصري</div>
+      <h2>لقطات من طراز رفيع</h2>
+      <div class="gallery reveal">
+        <a href="https://unsplash.com/s/photos/luxury-villa" target="_blank" rel="noopener"><img src="https://source.unsplash.com/800x500/?luxury,villa" alt="فلل فاخرة"></a>
+        <a href="https://unsplash.com/s/photos/construction-crane" target="_blank" rel="noopener"><img src="https://source.unsplash.com/800x500/?construction,crane" alt="أبراج وإنشاءات"></a>
+        <a href="https://unsplash.com/s/photos/interior-design" target="_blank" rel="noopener"><img src="https://source.unsplash.com/800x500/?interior,design" alt="تصميم داخلي"></a>
+        <a href="https://unsplash.com/s/photos/maintenance" target="_blank" rel="noopener"><img src="https://source.unsplash.com/800x500/?maintenance,tools" alt="صيانة"></a>
+        <a href="https://unsplash.com/s/photos/construction-workers" target="_blank" rel="noopener"><img src="https://source.unsplash.com/800x500/?construction,workers" alt="فرق تنفيذ"></a>
+        <a href="https://unsplash.com/s/photos/facade" target="_blank" rel="noopener"><img src="https://source.unsplash.com/800x500/?facade,architecture" alt="واجهات"></a>
+      </div>
+      <div style="margin-top:16px"><a href="#s6" class="btn gold">تواصل معنا</a></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: CONTACT -->
+  <section id="s6" class="slide vignette">
+    <div class="layer" style="background:url('https://source.unsplash.com/1600x900/?abu%20dhabi,skyline') center/cover no-repeat;filter:brightness(.55)"></div>
+    <div class="content">
+      <div class="kicker">اتصال مباشر</div>
+      <h2>احصل على عرض سعر الآن</h2>
+      <div class="contact reveal">
+        <div class="form card">
+          <form onsubmit="return sendWhatsApp(event)">
+            <label>الاسم</label><input id="name" required placeholder="اكتب اسمك الكامل">
+            <label>رقم الهاتف</label><input id="phone" required placeholder="مثال: 050xxxxxxx">
+            <label>نوع الخدمة</label>
+            <select id="service">
+              <option>مقاولات عامة</option><option>صيانة (كهرباء/سباكة/تكييف)</option>
+              <option>تشطيبات داخلية</option><option>ترميم وتحسين</option>
+            </select>
+            <label>تفاصيل مختصرة</label><textarea id="message" rows="4" placeholder="اذكر المدينة، المساحة، ونطاق العمل"></textarea>
+            <button class="btn gold" type="submit">إرسال عبر واتساب</button>
+          </form>
+          <small style="color:#aab0b8;display:block;margin-top:8px">بالضغط على الإرسال، سيتم فتح محادثة واتساب مسبقة التعبئة.</small>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 8px">معلومات التواصل</h3>
+          <div style="display:grid;gap:8px">
+            <span class="badge">الهاتف: <a href="tel:+971502402894">+971 50 240 2894</a></span>
+            <span class="badge">واتساب: <a href="https://wa.me/971502402894" target="_blank" rel="noopener">wa.me/971502402894</a></span>
+            <span class="badge">البريد: <a href="mailto:newcastles.ae@gmail.com">newcastles.ae@gmail.com</a></span>
+            <span class="badge">العنوان: الإمارات – أبوظبي</span>
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Abu%20Dhabi%2C%20UAE">افتح الموقع على الخريطة</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© <span id="year"></span> القصور الحديثة — جميع الحقوق محفوظة</footer>
+
+<!-- WhatsApp Floating -->
+<div class="wa">
+  <a href="https://wa.me/971502402894" target="_blank" rel="noopener" aria-label="تواصل واتساب">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.19c-.27-.14-1.6-.79-1.84-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.2-1.35-.81-.72-1.35-1.6-1.51-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.46-.84-2-.22-.53-.43-.46-.61-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.84.14.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.64.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/><path d="M26.99 5.02A13.9 13.9 0 0 0 16.02 1 13.93 13.93 0 0 0 2.09 14.02c0 2.46.64 4.85 1.86 6.96L2 31l10.2-2.68a14.02 14.02 0 0 0 6.87 1.77h.01A13.93 13.93 0 0 0 30 14.98 13.9 13.9 0 0 0 26.99 5.02z"/></svg>
+    <span>واتساب</span>
+  </a>
+</div>
+
+<script>
+/* Year */
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* Reveal on view */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Keyboard navigation like slides */
+const slides=[...document.querySelectorAll('.slide')];
+function goto(idx){if(idx<0||idx>=slides.length)return;slides[idx].scrollIntoView({behavior:"smooth"});activateDot(idx)}
+let cur=0;
+addEventListener('scroll',()=>{const y=window.scrollY||document.querySelector('main').scrollTop;slides.forEach((s,i)=>{const r=s.getBoundingClientRect();if(Math.abs(r.top)<window.innerHeight*0.5){cur=i;activateDot(i)}})},{passive:true});
+addEventListener('keydown',e=>{if(["ArrowDown","PageDown"].includes(e.key))goto(cur+1);if(["ArrowUp","PageUp"].includes(e.key))goto(cur-1);});
+
+/* Dots */
+const dots=document.getElementById('dots');
+slides.forEach((_,i)=>{const b=document.createElement('button');b.addEventListener('click',()=>goto(i));dots.appendChild(b)});
+function activateDot(i){[...dots.children].forEach((d,ix)=>d.classList.toggle('active',ix===i))}activateDot(0);
+
+/* YouTube Background in HERO
+   اخترت قائمة تشغيل 4K construction (IDs شائعة) — يمكن استبدالها لاحقًا.
+*/
+const YT_IDS=[
+  "g7W6W5f-4bU", /* 4K Construction Timelapse (نمطي) */
+  "4xDzrJKXOOY", /* City Building Timelapse 4K */
+  "f77SKdyn-1Y"  /* Dubai Skyline 4K */
+];
+(function bgYT(){
+  const id=YT_IDS[Math.floor(Math.random()*YT_IDS.length)];
+  const el=document.getElementById('yt-bg');
+  const iframe=document.createElement('iframe');
+  iframe.setAttribute('title','4K Construction Background');
+  iframe.setAttribute('frameborder','0');
+  iframe.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
+  iframe.setAttribute('allowfullscreen','');
+  iframe.style.position='absolute';iframe.style.inset='-2px 0 0 0';iframe.style.width='100%';iframe.style.height='102%';iframe.style.filter='brightness(.75) saturate(1.05) contrast(1.05)';
+  iframe.src=`https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=${id}&modestbranding=1&playsinline=1`;
+  el.appendChild(iframe);
+})();
+
+/* Cinematic Reel — video cards (YouTube) */
+const REEL=[
+  {id:"g7W6W5f-4bU", label:"Construction 4K"},
+  {id:"4xDzrJKXOOY", label:"City Build 4K"},
+  {id:"f77SKdyn-1Y", label:"Dubai 4K"},
+  {id:"8ZK_S-46KwE", label:"Interior Luxury 4K"},
+  {id:"JwYX52BP2Sk", label:"Architecture 4K"}
+];
+const reel=document.getElementById('reel');
+REEL.forEach(v=>{
+  const card=document.createElement('div');
+  card.className='tcard';
+  card.innerHTML=`<div style="position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;margin-bottom:10px">
+    <iframe src="https://www.youtube.com/embed/${v.id}?autoplay=0&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1"
+      title="${v.label}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
+      style="position:absolute;inset:0;width:100%;height:100%"></iframe></div>
+    <strong>${v.label}</strong><br><small style="color:${getComputedStyle(document.documentElement).getPropertyValue('--muted')||'#aeb4bc'}">لقطات عرضية 4K</small>`;
+  reel.appendChild(card);
+});
+
+/* WhatsApp Form */
+function sendWhatsApp(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const service=document.getElementById('service').value;
+  const msg=document.getElementById('message').value.trim();
+  const text=`القصور الحديثة | طلب عرض سعر
 الاسم: ${name}
 الهاتف: ${phone}
 الخدمة: ${service}
 التفاصيل: ${msg}`;
-      const url=`https://wa.me/971502402894?text=${encodeURIComponent(text)}`;
-      window.open(url,"_blank","noopener");
-      return false;
-    }
-  </script>
+  window.open(`https://wa.me/971502402894?text=${encodeURIComponent(text)}`,"_blank","noopener");
+  return false;
+}
+</script>
 </body>
 </html>
