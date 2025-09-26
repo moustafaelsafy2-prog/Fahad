@@ -1,77 +1,127 @@
-// i18n strings
-const i18n = {
-  ar: {
-    "hero.title":"نبني الثقة ونسلّم الجودة منذ 2008",
-    "hero.subtitle":"مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم، مع التزام صارم بالسلامة والجودة.",
-    "cta.quote":"احصل على عرض سعر","cta.whatsapp":"تواصل عبر واتساب",
-    "about.title":"من نحن",
-    "about.lead":"تأسست نيو كاسل عام 2008 لتقديم حلول إنشائية وصيانة عالية الاعتمادية للقطاعات السكنية والتجارية والصناعية في أبوظبي، عبر فريق محترف وشراكات هندسية راسخة.",
-    "about.v1":"النزاهة والشفافية","about.v2":"التزام بالجودة","about.v3":"التسليم في الوقت","about.v4":"السلامة أولاً","about.v5":"رضا العملاء",
-    "about.since":"نخدمكم منذ","about.sectors":"قطاعات (سكني/تجاري/صناعي)","about.support":"تركيز على الجودة والسلامة",
-    "services.title":"خدماتنا",
-    "services.s1.title":"المقاولات العامة","services.s1.desc":"تنفيذ كامل لمشاريع الفلل والمكاتب والمستودعات من الدراسات حتى التسليم.",
-    "services.s2.title":"الصيانة والتجديد","services.s2.desc":"صيانة وقائية وتصحيحية وتجديد شامل مع خطط واضحة.",
-    "services.s3.title":"الطرق والبنية التحتية","services.s3.desc":"حفريات، تمديدات، طبقات، وتصريف وفق أعلى المعايير.",
-    "services.s4.title":"مرافق النفط والغاز","services.s4.desc":"أعمال مدنية/كهربية/ميكانيكية ضمن اشتراطات السلامة.",
-    "services.s5.title":"التشطيبات والديكور","services.s5.desc":"تصميم وتنفيذ تشطيبات راقية للمساحات السكنية والتجارية.",
-    "projects.title":"مشاريع مختارة",
-    "projects.p1.title":"فيلا سكنية – مدينة محمد بن زايد","projects.p1.meta":"Consultant: Al Itqan · Abu Dhabi",
-    "projects.p2.title":"مجلس خارجي وتمديد غرفة – West 25","projects.p2.meta":"Consultant: Eastern Architecture · Abu Dhabi",
-    "projects.p3.title":"فيلا – الباهية","projects.p3.meta":"Consultant: Al Khail · Abu Dhabi",
-    "projects.p4.title":"مبنى مكاتب ومحلات – منطقة M36","projects.p4.meta":"Consultant: Dar Al-Handasah · Abu Dhabi",
-    "contact.title":"تواصل معنا","contact.subtitle":"نسعد بخدمتكم في أبوظبي. املأ النموذج وسنعاودك خلال 24 ساعة.",
-    "contact.phoneLabel":"هاتف:","contact.whatsapp":"واتساب:","contact.address":"العنوان:"
-  },
-  en: {
-    "hero.title":"Building Trust, Delivering Quality Since 2008",
-    "hero.subtitle":"Integrated contracting & maintenance in Abu Dhabi—from design to handover with uncompromising safety and quality.",
-    "cta.quote":"Get a Quote","cta.whatsapp":"Chat on WhatsApp",
-    "about.title":"About Us",
-    "about.lead":"Established in 2008, New Castle delivers reliable construction and maintenance solutions across residential, commercial, and industrial sectors in Abu Dhabi, powered by a professional team and strong engineering partnerships.",
-    "about.v1":"Integrity & Transparency","about.v2":"Commitment to Quality","about.v3":"On-Time Handover","about.v4":"Safety First","about.v5":"Client Satisfaction",
-    "about.since":"Since","about.sectors":"Sectors (Residential/Commercial/Industrial)","about.support":"Quality & Safety Focus",
-    "services.title":"Our Services",
-    "services.s1.title":"General Contracting","services.s1.desc":"End-to-end delivery for villas, offices, and warehouses—from studies to handover.",
-    "services.s2.title":"Maintenance & Renovation","services.s2.desc":"Preventive & corrective maintenance and full renovations with clear plans.",
-    "services.s3.title":"Roads & Infrastructure","services.s3.desc":"Excavation, utilities, layers, and drainage to top standards.",
-    "services.s4.title":"Oil & Gas Facilities","services.s4.desc":"Civil/EE/MEP works under strict safety requirements.",
-    "services.s5.title":"Fit-Out & Décor","services.s5.desc":"Premium fit-out and décor for residential and commercial spaces.",
-    "projects.title":"Featured Projects",
-    "projects.p1.title":"Residential Villa – MBZ City","projects.p1.meta":"Consultant: Al Itqan · Abu Dhabi",
-    "projects.p2.title":"Outdoor Majlis & Bedroom Extension – West 25","projects.p2.meta":"Consultant: Eastern Architecture · Abu Dhabi",
-    "projects.p3.title":"Villa – Al Bahia","projects.p3.meta":"Consultant: Al Khail · Abu Dhabi",
-    "projects.p4.title":"Office Building & Shops – Area M36","projects.p4.meta":"Consultant: Dar Al-Handasah · Abu Dhabi",
-    "contact.title":"Contact Us","contact.subtitle":"We’re happy to serve you in Abu Dhabi. Fill the form and we’ll reach out within 24 hours.",
-    "contact.phoneLabel":"Phone:","contact.whatsapp":"WhatsApp:","contact.address":"Address:"
-  }
-};
-
-// Helpers
-const $ = (s, root=document)=>root.querySelector(s);
-const $$ = (s, root=document)=>Array.from(root.querySelectorAll(s));
-
-$("#year").textContent = new Date().getFullYear();
-
-const langToggle = $("#langToggle");
-let current = "ar";
-
-function applyLang(lang){
-  const dict = i18n[lang];
-  $$("[data-i18n]").forEach(el=>{
-    const k = el.getAttribute("data-i18n");
-    if(dict[k]) el.textContent = dict[k];
-  });
-  document.body.classList.toggle("lang-en", lang==="en");
-  document.body.classList.toggle("lang-ar", lang==="ar");
-  document.documentElement.lang = lang==="en" ? "en" : "ar";
-  document.documentElement.dir = lang==="en" ? "ltr" : "rtl";
-  langToggle.textContent = lang==="en" ? "عربي" : "EN";
-
-  // حافظ على اتجاه الأرقام والرموز + من اليسار
-  $$(".ltr").forEach(el=> el.style.direction = "ltr");
+:root{
+  --blue:#0B4DA2;
+  --gold:#F4B400;
+  --char:#2B2B2B;
+  --white:#FFFFFF;
+  --muted:#F6F8FC;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
 }
-langToggle?.addEventListener("click", ()=>{
-  current = current === "ar" ? "en" : "ar";
-  applyLang(current);
-});
-applyLang(current);
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Noto Kufi Arabic","Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--char);
+  background:#fff;
+  line-height:1.65;
+}
+img{max-width:100%;display:block}
+.container{width:min(1200px,92%);margin-inline:auto}
+.site-header{
+  position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--blue),#0b3c7f);color:#fff;display:grid;place-items:center;font-weight:800}
+.brand-text span{display:block;font-size:.78rem;opacity:.7}
+.nav-toggle{display:none;background:transparent;border:0;font-size:1.5rem}
+.nav ul, .nav #navMenu{display:flex;gap:16px;list-style:none;margin:0;padding:0}
+.nav a{color:var(--char);text-decoration:none;padding:10px 8px;border-radius:8px}
+.nav a:hover{background:#f4f6fb}
+.header-cta{display:flex;align-items:center;gap:10px}
+.lang-switch{display:flex;border:1px solid #e5e8f0;border-radius:999px;overflow:hidden}
+.lang-btn{padding:6px 10px;border:0;background:#fff;font-weight:600;cursor:pointer}
+.lang-btn.active{background:var(--blue);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:999px;border:0;cursor:pointer;font-weight:700;text-decoration:none}
+.btn.gold{background:var(--gold);color:#000}
+.btn.white{background:#fff;color:#000;border:1px solid #e5e8f0}
+.btn.outlined{background:#fff;border:2px solid var(--blue);color:var(--blue)}
+.btn.text{padding:0;background:transparent;color:var(--blue);border:0}
+.btn:focus-visible{outline:3px solid #80b3ff;outline-offset:2px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#f7f9ff,#fff)}
+.hero-media{position:relative;min-height:340px}
+.hero-media picture{position:absolute;inset:0}
+.hero-media picture.next{animation:fade 16s infinite}
+@keyframes fade{
+  0%,40%{opacity:0}
+  50%,90%{opacity:1}
+  100%{opacity:0}
+}
+.gold-slash{position:absolute;inset:auto -15% -40px auto;width:130%;height:120px;transform:skewY(-8deg);background:var(--gold);opacity:.85;box-shadow:var(--shadow)}
+.hero-copy{position:relative;padding:32px 0 12px}
+.hero h1{font-size:clamp(1.4rem,3vw,2.2rem);margin:0 0 6px;color:#0b3c7f}
+.lead{font-size:clamp(.95rem,2.2vw,1.1rem);margin:0 0 18px}
+.value-props{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:18px 0 0;list-style:none}
+.value-props li{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid #e9edf6;padding:8px 12px;border-radius:999px;box-shadow:var(--shadow)}
+
+/* Sections */
+.section{padding:56px 0}
+.section.alt{background:var(--muted)}
+.section h2{margin:0 0 14px;font-size:clamp(1.2rem,2.6vw,1.8rem);color:var(--blue)}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+
+/* Grids */
+.grid-2{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:880px){.grid-2{grid-template-columns:1.1fr .9fr}}
+.services-grid,.projects-grid,.blog-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:980px){.services-grid{grid-template-columns:repeat(5,1fr)}}
+@media (min-width:720px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.projects-grid{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:720px){.blog-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* Cards */
+.card{background:#fff;border:1px solid #eef2fb;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.service{background:#fff;border:1px solid #e9edf6;border-radius:var(--radius);padding:18px;text-align:center;box-shadow:var(--shadow)}
+.service .icon{font-size:28px;margin-bottom:8px}
+.project-card{background:#fff;border:1px solid #e9edf6;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.project-card .pc-body{padding:12px}
+.logo-row{display:flex;flex-wrap:wrap;gap:16px;list-style:none;padding:0;margin:0}
+.logo-row li{background:#fff;border:1px dashed #d9dfea;padding:10px 14px;border-radius:12px}
+
+/* Filters */
+.chip{border:1px solid #d8def0;background:#fff;border-radius:999px;padding:8px 12px;cursor:pointer}
+.chip.active,.chip:hover{background:#eaf1ff}
+
+/* QHSE */
+.qhse-visual{display:grid;place-items:center;background:linear-gradient(135deg,#0b3c7f,#0b4da2);color:#fff;border-radius:var(--radius);height:100%;min-height:180px;font-weight:800;font-size:42px;letter-spacing:.2em}
+
+/* Form */
+.lead-form{background:#fff;border:1px solid #e9edf6;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.lead-form .row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:12px}
+.lead-form label{display:flex;flex-direction:column;gap:6px}
+.lead-form input,.lead-form select,.lead-form textarea{
+  padding:12px;border-radius:10px;border:1px solid #dfe6f5;background:#fbfcff;font:inherit
+}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{outline:2px solid #80b3ff;border-color:#80b3ff}
+.lead-form .full{grid-column:1/-1}
+.file input{padding:10px;background:#fff}
+.form-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.form-note{font-size:.85rem;opacity:.75;margin-top:6px}
+
+/* Contact */
+.contact-list{list-style:none;padding:0;margin:0 0 12px}
+.contact-list li{margin-bottom:4px}
+.map-placeholder{height:220px;border-radius:14px;background:repeating-linear-gradient(45deg,#f4f6fb,#f4f6fb 10px,#fff 10px,#fff 20px);display:grid;place-items:center;color:#6b7280;border:1px dashed #d9dfea}
+
+/* Footer */
+.site-footer{background:#0b3c7f;color:#fff;padding:24px 0;margin-top:32px}
+.footer-inner{display:flex;flex-direction:column;gap:12px}
+.foot-brand{display:flex;align-items:center;gap:10px}
+.foot-links{list-style:none;display:flex;gap:14px;padding:0;margin:0;flex-wrap:wrap}
+.foot-links a{color:#fff;text-decoration:none}
+.foot-contact a{color:#fff;text-decoration:none}
+
+/* Small screens nav */
+@media (max-width:920px){
+  .nav-toggle{display:block}
+  .nav #navMenu{position:absolute;inset:60px 0 auto 0;background:#fff;border-top:1px solid #eee;display:none;flex-direction:column;padding:10px 16px}
+  .nav #navMenu.show{display:flex}
+}
+
+/* RTL/LTR helpers */
+[dir="rtl"] .brand-text span{text-align:right}
+[dir="ltr"] body{font-family:"Poppins","Noto Kufi Arabic",system-ui}
