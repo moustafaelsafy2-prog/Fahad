@@ -9,12 +9,94 @@
   <meta name="theme-color" content="#0B4DA2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- AR + EN fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root{--blue:#0B4DA2;--gold:#F4B400;--char:#2B2B2B;--white:#FFFFFF;--muted:#F6F8FC;--radius:14px;--shadow:0 10px 30px rgba(0,0,0,.08)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Noto Kufi Arabic","Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--char);background:#fff;line-height:1.65}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .brand-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--blue),#0b3c7f);color:#fff;display:grid;place-items:center;font-weight:800}
+    .brand-text span{display:block;font-size:.78rem;opacity:.7}
+    .nav-toggle{display:none;background:transparent;border:0;font-size:1.5rem}
+    .nav ul, .nav #navMenu{display:flex;gap:16px;list-style:none;margin:0;padding:0}
+    .nav a{color:var(--char);text-decoration:none;padding:10px 8px;border-radius:8px}
+    .nav a:hover{background:#f4f6fb}
+    .header-cta{display:flex;align-items:center;gap:10px}
+    .lang-switch{display:flex;border:1px solid #e5e8f0;border-radius:999px;overflow:hidden}
+    .lang-btn{padding:6px 10px;border:0;background:#fff;font-weight:600;cursor:pointer}
+    .lang-btn.active{background:var(--blue);color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:999px;border:0;cursor:pointer;font-weight:700;text-decoration:none}
+    .btn.gold{background:var(--gold);color:#000}
+    .btn.white{background:#fff;color:#000;border:1px solid #e5e8f0}
+    .btn.outlined{background:#fff;border:2px solid var(--blue);color:var(--blue)}
+    .btn.text{padding:0;background:transparent;color:var(--blue);border:0}
+    .btn:focus-visible{outline:3px solid #80b3ff;outline-offset:2px}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#f7f9ff,#fff)}
+    .hero-media{position:relative;min-height:340px}
+    .hero-media picture{position:absolute;inset:0}
+    .hero-media picture.next{animation:fade 16s infinite}
+    @keyframes fade{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
+    .gold-slash{position:absolute;inset:auto -15% -40px auto;width:130%;height:120px;transform:skewY(-8deg);background:var(--gold);opacity:.85;box-shadow:var(--shadow)}
+    .hero-copy{position:relative;padding:32px 0 12px}
+    .hero h1{font-size:clamp(1.4rem,3vw,2.2rem);margin:0 0 6px;color:#0b3c7f}
+    .lead{font-size:clamp(.95rem,2.2vw,1.1rem);margin:0 0 18px}
+    .value-props{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:18px 0 0;list-style:none}
+    .value-props li{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid #e9edf6;padding:8px 12px;border-radius:999px;box-shadow:var(--shadow)}
+    .section{padding:56px 0}
+    .section.alt{background:var(--muted)}
+    .section h2{margin:0 0 14px;font-size:clamp(1.2rem,2.6vw,1.8rem);color:var(--blue)}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .grid-2{display:grid;grid-template-columns:1fr;gap:18px}
+    @media (min-width:880px){.grid-2{grid-template-columns:1.1fr .9fr}}
+    .services-grid,.projects-grid,.blog-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width:720px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:980px){.services-grid{grid-template-columns:repeat(5,1fr)}}
+    @media (min-width:720px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (min-width:1024px){.projects-grid{grid-template-columns:repeat(4,1fr)}}
+    @media (min-width:720px){.blog-grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:#fff;border:1px solid #eef2fb;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .service{background:#fff;border:1px solid #e9edf6;border-radius:var(--radius);padding:18px;text-align:center;box-shadow:var(--shadow)}
+    .service .icon{font-size:28px;margin-bottom:8px}
+    .project-card{background:#fff;border:1px solid #e9edf6;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .project-card .pc-body{padding:12px}
+    .logo-row{display:flex;flex-wrap:wrap;gap:16px;list-style:none;padding:0;margin:0}
+    .logo-row li{background:#fff;border:1px dashed #d9dfea;padding:10px 14px;border-radius:12px}
+    .chip{border:1px solid #d8def0;background:#fff;border-radius:999px;padding:8px 12px;cursor:pointer}
+    .chip.active,.chip:hover{background:#eaf1ff}
+    .qhse-visual{display:grid;place-items:center;background:linear-gradient(135deg,#0b3c7f,#0b4da2);color:#fff;border-radius:var(--radius);height:100%;min-height:180px;font-weight:800;font-size:42px;letter-spacing:.2em}
+    .lead-form{background:#fff;border:1px solid #e9edf6;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .lead-form .row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:12px}
+    .lead-form label{display:flex;flex-direction:column;gap:6px}
+    .lead-form input,.lead-form select,.lead-form textarea{padding:12px;border-radius:10px;border:1px solid #dfe6f5;background:#fbfcff;font:inherit}
+    .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{outline:2px solid #80b3ff;border-color:#80b3ff}
+    .lead-form .full{grid-column:1/-1}
+    .file input{padding:10px;background:#fff}
+    .form-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .form-note{font-size:.85rem;opacity:.75;margin-top:6px}
+    .contact-list{list-style:none;padding:0;margin:0 0 12px}
+    .contact-list li{margin-bottom:4px}
+    .map-placeholder{height:220px;border-radius:14px;background:repeating-linear-gradient(45deg,#f4f6fb,#f4f6fb 10px,#fff 10px,#fff 20px);display:grid;place-items:center;color:#6b7280;border:1px dashed #d9dfea}
+    .site-footer{background:#0b3c7f;color:#fff;padding:24px 0;margin-top:32px}
+    .footer-inner{display:flex;flex-direction:column;gap:12px}
+    .foot-brand{display:flex;align-items:center;gap:10px}
+    .foot-links{list-style:none;display:flex;gap:14px;padding:0;margin:0;flex-wrap:wrap}
+    .foot-links a{color:#fff;text-decoration:none}
+    .foot-contact a{color:#fff;text-decoration:none}
+    @media (max-width:920px){
+      .nav-toggle{display:block}
+      .nav #navMenu{position:absolute;inset:60px 0 auto 0;background:#fff;border-top:1px solid #eee;display:none;flex-direction:column;padding:10px 16px}
+      .nav #navMenu.show{display:flex}
+    }
+    [dir="rtl"] .brand-text span{text-align:right}
+    [dir="ltr"] body{font-family:"Poppins","Noto Kufi Arabic",system-ui}
+  </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="New Castle">
@@ -41,11 +123,8 @@
       </nav>
 
       <div class="header-cta">
-        <a class="btn outlined" id="whatsappTop" href="https://wa.me/971502402894" target="_blank" rel="noopener">
-          <span data-i18n="cta.whatsapp">واتساب</span>
-        </a>
+        <a class="btn outlined" id="whatsappTop" href="https://wa.me/971502402894" target="_blank" rel="noopener"><span data-i18n="cta.whatsapp">واتساب</span></a>
         <button class="btn gold" data-scroll="#quote" data-i18n="cta.quote">اطلب عرض سعر</button>
-
         <div class="lang-switch" role="group" aria-label="Language switch">
           <button class="lang-btn active" data-lang="ar">AR</button>
           <button class="lang-btn" data-lang="en">EN</button>
@@ -54,30 +133,28 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-media">
+      <!-- صورة ثابتة: فيلا حديثة -->
       <picture>
-        <!-- ضع روابط صور WebP حقيقية لاحقاً -->
-        <source srcset="assets/hero-villa.webp" type="image/webp" />
-        <img src="assets/hero-villa.jpg" alt="واجهة فيلا حديثة في أبوظبي" loading="eager" />
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80"
+             alt="واجهة فيلا حديثة" loading="eager" />
       </picture>
+      <!-- صورة ثابتة: موقع إنشاءات -->
       <picture class="next">
-        <source srcset="assets/hero-site.webp" type="image/webp" />
-        <img src="assets/hero-site.jpg" alt="موقع عمل وإنشاءات" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1920&q=80"
+             alt="موقع عمل وإنشاءات" loading="lazy" />
       </picture>
       <div class="gold-slash" aria-hidden="true"></div>
     </div>
     <div class="container hero-copy">
       <h1 data-i18n="hero.title">نبني الثقة ونسلّم الجودة منذ 2008</h1>
-      <p class="lead" data-i18n="hero.subtitle">
-        مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم، بأعلى معايير السلامة والجودة.
-      </p>
+      <p class="lead" data-i18n="hero.subtitle">مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم، بأعلى معايير السلامة والجودة.</p>
       <div class="hero-actions">
         <button class="btn gold" data-scroll="#quote" data-i18n="cta.quote">اطلب عرض سعر</button>
         <a class="btn white" href="#contact" data-i18n="cta.contact">تواصل الآن</a>
       </div>
-
       <ul class="value-props">
         <li><span>✓</span><span data-i18n="values.v1">خبرة موثوقة</span></li>
         <li><span>✓</span><span data-i18n="values.v2">تسليم في الوقت</span></li>
@@ -88,14 +165,12 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ABOUT -->
   <section id="about" class="section">
     <div class="container grid-2">
       <div>
         <h2 data-i18n="about.title">من نحن</h2>
-        <p data-i18n="about.body">
-          تأسست نيو كاسل عام 2008 لتقديم حلول إنشائية وصيانة عالية الاعتمادية للقطاعات السكنية والتجارية والصناعية في أبوظبي، عبر فريق محترف وشراكات هندسية راسخة.
-        </p>
+        <p data-i18n="about.body">تأسست نيو كاسل عام 2008 لتقديم حلول إنشائية وصيانة عالية الاعتمادية للقطاعات السكنية والتجارية والصناعية في أبوظبي، عبر فريق محترف وشراكات هندسية راسخة.</p>
         <div class="pill-group">
           <span class="pill" data-i18n="about.sectors.r">سكني</span>
           <span class="pill" data-i18n="about.sectors.c">تجاري</span>
@@ -103,14 +178,8 @@
         </div>
       </div>
       <div class="vision-cards">
-        <div class="card">
-          <h3 data-i18n="about.vision.h">الرؤية</h3>
-          <p data-i18n="about.vision.p">قيادة موثوقة في الإنشاءات والصيانة مع الابتكار والجودة.</p>
-        </div>
-        <div class="card">
-          <h3 data-i18n="about.mission.h">الرسالة</h3>
-          <p data-i18n="about.mission.p">حلول تعاقدية فعّالة من حيث التكلفة، في الوقت، مستدامة، وتتجاوز التوقعات.</p>
-        </div>
+        <div class="card"><h3 data-i18n="about.vision.h">الرؤية</h3><p data-i18n="about.vision.p">قيادة موثوقة في الإنشاءات والصيانة مع الابتكار والجودة.</p></div>
+        <div class="card"><h3 data-i18n="about.mission.h">الرسالة</h3><p data-i18n="about.mission.p">حلول تعاقدية فعّالة من حيث التكلفة، في الوقت، مستدامة، وتتجاوز التوقعات.</p></div>
         <div class="card">
           <h3 data-i18n="about.values.h">القيم</h3>
           <ul>
@@ -125,33 +194,33 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- SERVICES -->
   <section id="services" class="section alt">
     <div class="container">
       <h2 data-i18n="services.title">الخدمات</h2>
       <div class="services-grid">
         <article class="service">
-          <div class="icon" aria-hidden="true">🏗️</div>
+          <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=800&q=80" alt="أعمال خرسانية وقوالب" loading="lazy"/>
           <h3 data-i18n="services.s1.h">المقاولات العامة</h3>
           <p data-i18n="services.s1.p">تنفيذ كامل لفلل/مكاتب/مخازن من الأساسات حتى التسليم.</p>
         </article>
         <article class="service">
-          <div class="icon">🛠️</div>
+          <img src="https://images.unsplash.com/photo-1503387762-b6d21de7175d?auto=format&fit=crop&w=800&q=80" alt="صيانة وتجديد" loading="lazy"/>
           <h3 data-i18n="services.s2.h">الصيانة والتجديد</h3>
           <p data-i18n="services.s2.p">خطط صيانة وقائية/تصحيحية وتجديد شامل.</p>
         </article>
         <article class="service">
-          <div class="icon">🚧</div>
+          <img src="https://images.unsplash.com/photo-1465808026980-8f12a4b254ae?auto=format&fit=crop&w=800&q=80" alt="طرق وبنية تحتية" loading="lazy"/>
           <h3 data-i18n="services.s3.h">الطرق والبنية التحتية</h3>
           <p data-i18n="services.s3.p">حفريات وتمديدات وطبقات وتصريف.</p>
         </article>
         <article class="service">
-          <div class="icon">🛢️</div>
+          <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=800&q=80" alt="مرافق النفط والغاز" loading="lazy"/>
           <h3 data-i18n="services.s4.h">مرافق النفط والغاز</h3>
           <p data-i18n="services.s4.p">مدني/كهرباء/ميكانيك وفق اشتراطات السلامة.</p>
         </article>
         <article class="service">
-          <div class="icon">🎨</div>
+          <img src="https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=800&q=80" alt="تشطيبات وديكور" loading="lazy"/>
           <h3 data-i18n="services.s5.h">التشطيبات والديكور</h3>
           <p data-i18n="services.s5.p">تصميم وتنفيذ تشطيبات راقية للسكني/التجاري.</p>
         </article>
@@ -159,7 +228,7 @@
     </div>
   </section>
 
-  <!-- Featured Projects -->
+  <!-- PROJECTS -->
   <section id="projects" class="section">
     <div class="container">
       <div class="section-head">
@@ -173,48 +242,35 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Project Card 1 -->
         <article class="project-card" data-type="residential">
-          <picture>
-            <source srcset="assets/proj-mbz.webp" type="image/webp" />
-            <img src="assets/proj-mbz.jpg" alt="فيلا سكنية - مدينة محمد بن زايد" loading="lazy" />
-          </picture>
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=80" alt="فيلا سكنية - مدينة محمد بن زايد" loading="lazy" />
           <div class="pc-body">
             <h3 data-i18n="projects.items.mbz.title">فيلا سكنية – مدينة محمد بن زايد</h3>
             <p data-i18n="projects.items.mbz.meta">الاستشاري: Al Itqan</p>
             <a class="btn text" href="#case-mbz" data-i18n="projects.cta">عرض دراسة حالة</a>
           </div>
         </article>
-        <!-- Project Card 2 -->
+
         <article class="project-card" data-type="residential">
-          <picture>
-            <source srcset="assets/proj-west25.webp" type="image/webp" />
-            <img src="assets/proj-west25.jpg" alt="مجلس خارجي وتمديد غرفة – West 25" loading="lazy" />
-          </picture>
+          <img src="https://images.unsplash.com/photo-1523419409543-a5e549c1d6c5?auto=format&fit=crop&w=1200&q=80" alt="مجلس خارجي وتمديد غرفة – West 25" loading="lazy" />
           <div class="pc-body">
             <h3 data-i18n="projects.items.w25.title">مجلس خارجي وتمديد غرفة – West 25</h3>
             <p data-i18n="projects.items.w25.meta">الاستشاري: Eastern Architecture</p>
             <a class="btn text" href="#case-w25" data-i18n="projects.cta">عرض دراسة حالة</a>
           </div>
         </article>
-        <!-- Project Card 3 -->
+
         <article class="project-card" data-type="residential">
-          <picture>
-            <source srcset="assets/proj-bahia.webp" type="image/webp" />
-            <img src="assets/proj-bahia.jpg" alt="فيلا – الباهية" loading="lazy" />
-          </picture>
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="فيلا – الباهية" loading="lazy" />
           <div class="pc-body">
             <h3 data-i18n="projects.items.bahia.title">فيلا – الباهية</h3>
             <p data-i18n="projects.items.bahia.meta">الاستشاري: Al Khail</p>
             <a class="btn text" href="#case-bahia" data-i18n="projects.cta">عرض دراسة حالة</a>
           </div>
         </article>
-        <!-- Project Card 4 -->
+
         <article class="project-card" data-type="commercial">
-          <picture>
-            <source srcset="assets/proj-m36.webp" type="image/webp" />
-            <img src="assets/proj-m36.jpg" alt="مبنى مكاتب ومحلات – M36" loading="lazy" />
-          </picture>
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="مبنى مكاتب ومحلات – M36" loading="lazy" />
           <div class="pc-body">
             <h3 data-i18n="projects.items.m36.title">مبنى مكاتب ومحلات – M36</h3>
             <p data-i18n="projects.items.m36.meta">الاستشاري: Dar Al-Handasah</p>
@@ -225,21 +281,17 @@
     </div>
   </section>
 
-  <!-- Partners -->
+  <!-- PARTNERS -->
   <section id="partners" class="section alt">
     <div class="container">
       <h2 data-i18n="partners.title">شركاء النجاح</h2>
       <ul class="logo-row">
-        <li>Dar Al-Handasah</li>
-        <li>Western Engineering</li>
-        <li>Al Amara Al Sharqiya</li>
-        <li>Al Khail Engineering</li>
-        <li>Firas Engineering</li>
+        <li>Dar Al-Handasah</li><li>Western Engineering</li><li>Al Amara Al Sharqiya</li><li>Al Khail Engineering</li><li>Firas Engineering</li>
       </ul>
     </div>
   </section>
 
-  <!-- QHSE & Sustainability -->
+  <!-- QHSE -->
   <section id="qhse" class="section">
     <div class="container grid-2">
       <div>
@@ -255,28 +307,18 @@
     </div>
   </section>
 
-  <!-- Quote / Lead Form -->
+  <!-- QUOTE FORM -->
   <section id="quote" class="section alt">
     <div class="container">
       <h2 data-i18n="quote.title">اطلب عرض سعر</h2>
       <form id="leadForm" class="lead-form" novalidate>
         <div class="row">
-          <label>
-            <span data-i18n="form.name">الاسم الكامل</span>
-            <input type="text" name="name" required aria-required="true" />
-          </label>
-          <label>
-            <span data-i18n="form.phone">رقم الهاتف (UAE)</span>
-            <input type="tel" name="phone" inputmode="tel" pattern="^(\+|00)?971[0-9]{8,9}$" placeholder="+9715XXXXXXXX" required />
-          </label>
+          <label><span data-i18n="form.name">الاسم الكامل</span><input type="text" name="name" required aria-required="true" /></label>
+          <label><span data-i18n="form.phone">رقم الهاتف (UAE)</span><input type="tel" name="phone" inputmode="tel" pattern="^(\+|00)?971[0-9]{8,9}$" placeholder="+9715XXXXXXXX" required /></label>
         </div>
         <div class="row">
-          <label>
-            <span data-i18n="form.email">البريد الإلكتروني</span>
-            <input type="email" name="email" required />
-          </label>
-          <label>
-            <span data-i18n="form.type">نوع المشروع</span>
+          <label><span data-i18n="form.email">البريد الإلكتروني</span><input type="email" name="email" required /></label>
+          <label><span data-i18n="form.type">نوع المشروع</span>
             <select name="type" required>
               <option value="villa" data-i18n="form.types.villa">فيلا</option>
               <option value="office" data-i18n="form.types.office">مكتب</option>
@@ -287,44 +329,27 @@
           </label>
         </div>
         <div class="row">
-          <label>
-            <span data-i18n="form.city">المدينة</span>
-            <input type="text" name="city" placeholder="Abu Dhabi" required />
-          </label>
-          <label>
-            <span data-i18n="form.budget">الميزانية التقريبية</span>
-            <input type="text" name="budget" placeholder="AED ..." />
-          </label>
+          <label><span data-i18n="form.city">المدينة</span><input type="text" name="city" placeholder="Abu Dhabi" required /></label>
+          <label><span data-i18n="form.budget">الميزانية التقريبية</span><input type="text" name="budget" placeholder="AED ..." /></label>
         </div>
-        <label class="full">
-          <span data-i18n="form.details">وصف مختصر</span>
-          <textarea name="details" rows="4" placeholder=""></textarea>
-        </label>
-        <label class="full file">
-          <span data-i18n="form.files">ملفات/رسومات (اختياري)</span>
-          <input type="file" name="files" multiple />
-        </label>
+        <label class="full"><span data-i18n="form.details">وصف مختصر</span><textarea name="details" rows="4"></textarea></label>
+        <label class="full file"><span data-i18n="form.files">ملفات/رسومات (اختياري)</span><input type="file" name="files" multiple /></label>
 
         <div class="form-actions">
           <button class="btn gold" type="submit" data-i18n="form.submit">إرسال الطلب</button>
           <a class="btn outlined" id="whatsappSticky" href="https://wa.me/971502402894" target="_blank" rel="noopener" data-i18n="cta.whatsapp">واتساب</a>
         </div>
-
-        <p class="form-note" data-i18n="form.note">
-          يرسل الطلب إلى البريد ويُنشئ رسالة واتساب تلقائياً. محمي بـ reCAPTCHA (للتهيئة لاحقاً).
-        </p>
+        <p class="form-note" data-i18n="form.note">يرسل الطلب إلى البريد ويُنشئ رسالة واتساب تلقائياً. محمي بـ reCAPTCHA (للتهيئة لاحقاً).</p>
       </form>
     </div>
   </section>
 
-  <!-- Careers -->
+  <!-- CAREERS -->
   <section id="careers" class="section">
     <div class="container grid-2">
       <div>
         <h2 data-i18n="careers.title">التوظيف</h2>
-        <p data-i18n="careers.body">
-          نبحث عن مهندسين ومشرفين وفنيين متميزين. أرسل السيرة إلى البريد مع عنوان الوظيفة.
-        </p>
+        <p data-i18n="careers.body">نبحث عن مهندسين ومشرفين وفنيين متميزين. أرسل السيرة إلى البريد مع عنوان الوظيفة.</p>
         <a class="btn text" href="mailto:Newcastles.ae@gmail.com?subject=Career%20Application" data-i18n="careers.cta">إرسال السيرة</a>
       </div>
       <ul class="bullets">
@@ -335,25 +360,19 @@
     </div>
   </section>
 
-  <!-- Insights -->
+  <!-- INSIGHTS -->
   <section id="insights" class="section alt">
     <div class="container">
       <h2 data-i18n="insights.title">Insights</h2>
       <div class="blog-grid">
-        <article class="post">
-          <h3 data-i18n="insights.p1">كيف نضمن التسليم في الوقت؟ منهجية إدارة المشاريع لدينا.</h3>
-        </article>
-        <article class="post">
-          <h3 data-i18n="insights.p2">سلامة الموقع أولاً: إجراءاتنا الميدانية.</h3>
-        </article>
-        <article class="post">
-          <h3 data-i18n="insights.p3">تجديد فلل فاخرة: قبل/بعد.</h3>
-        </article>
+        <article class="post"><h3 data-i18n="insights.p1">كيف نضمن التسليم في الوقت؟ منهجية إدارة المشاريع لدينا.</h3></article>
+        <article class="post"><h3 data-i18n="insights.p2">سلامة الموقع أولاً: إجراءاتنا الميدانية.</h3></article>
+        <article class="post"><h3 data-i18n="insights.p3">تجديد فلل فاخرة: قبل/بعد.</h3></article>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container grid-2">
       <div>
@@ -368,53 +387,53 @@
           <a class="btn outlined" href="https://wa.me/971502402894" target="_blank" rel="noopener" data-i18n="cta.whatsapp">واتساب</a>
         </div>
       </div>
-      <div class="map-embed">
-        <!-- ضع خريطة Google لاحقاً -->
-        <div class="map-placeholder" aria-hidden="true">Google Map</div>
-      </div>
+      <div class="map-embed"><div class="map-placeholder" aria-hidden="true">Google Map</div></div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="foot-brand">
-        <div class="brand-mark">NC</div>
-        <div>
-          <strong>New Castle</strong>
-          <span data-i18n="footer.since">Since 2008</span>
-        </div>
-      </div>
+      <div class="foot-brand"><div class="brand-mark">NC</div><div><strong>New Castle</strong><span data-i18n="footer.since">Since 2008</span></div></div>
       <ul class="foot-links">
         <li><a href="#about" data-i18n="nav.about">من نحن</a></li>
         <li><a href="#services" data-i18n="nav.services">الخدمات</a></li>
         <li><a href="#projects" data-i18n="nav.projects">المشاريع</a></li>
         <li><a href="#contact" data-i18n="nav.contact">تواصل</a></li>
       </ul>
-      <div class="foot-contact">
-        <a href="tel:+971502402894">+971502402894</a> ·
-        <a href="mailto:Newcastles.ae@gmail.com">Newcastles.ae@gmail.com</a>
-      </div>
+      <div class="foot-contact"><a href="tel:+971502402894">+971502402894</a> · <a href="mailto:Newcastles.ae@gmail.com">Newcastles.ae@gmail.com</a></div>
     </div>
   </footer>
 
-  <!-- Structured Data -->
+  <!-- Schema -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"New Castle Contracting & General Maintenance",
-    "image":"https://example.com/logo.png",
-    "telephone":"+971502402894",
-    "email":"Newcastles.ae@gmail.com",
-    "address":{"@type":"PostalAddress","addressCountry":"AE","addressLocality":"Abu Dhabi"},
-    "areaServed":["Abu Dhabi","UAE"],
-    "url":"https://example.com",
-    "foundingDate":"2008",
-    "sameAs":[]
-  }
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"New Castle Contracting & General Maintenance","image":"https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=70","telephone":"+971502402894","email":"Newcastles.ae@gmail.com","address":{"@type":"PostalAddress","addressCountry":"AE","addressLocality":"Abu Dhabi"},"areaServed":["Abu Dhabi","UAE"],"url":"https://example.com","foundingDate":"2008"}
   </script>
 
-  <script src="script.js" defer></script>
+  <script>
+    // ===== Mobile nav =====
+    const navToggle=document.querySelector('.nav-toggle');const navMenu=document.getElementById('navMenu');
+    if(navToggle){navToggle.addEventListener('click',()=>{const shown=navMenu.classList.toggle('show');navToggle.setAttribute('aria-expanded',shown?'true':'false');});}
+    // ===== Smooth scroll =====
+    document.querySelectorAll('[data-scroll]').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();document.querySelector(btn.dataset.scroll)?.scrollIntoView({behavior:'smooth',block:'start'});});});
+    // ===== Project filter =====
+    const chips=document.querySelectorAll('.chip');const cards=document.querySelectorAll('.project-card');
+    chips.forEach(chip=>chip.addEventListener('click',()=>{chips.forEach(c=>c.classList.remove('active'));chip.classList.add('active');const t=chip.dataset.filter;cards.forEach(card=>{card.style.display=(t==='all'||card.dataset.type===t)?'':'none';});}));
+    // ===== Lead form -> WhatsApp + mailto =====
+    const form=document.getElementById('leadForm');
+    if(form){form.addEventListener('submit',(e)=>{e.preventDefault();const fd=new FormData(form);const data=Object.fromEntries(fd.entries());
+      const required=['name','phone','email','type','city'];if(!required.every(k=>(data[k]||'').trim())){alert(currentDict.form.err||'Please fill required fields');return;}
+      const lang=document.documentElement.lang;const labels={ar:{q:'طلب عرض سعر',n:'الاسم',ph:'الهاتف',em:'البريد',t:'النوع',c:'المدينة',b:'الميزانية',d:'التفاصيل'},en:{q:'Quote Request',n:'Name',ph:'Phone',em:'Email',t:'Type',c:'City',b:'Budget',d:'Details'}}[lang];
+      const msg=`${labels.q}\n${labels.n}: ${data.name}\n${labels.ph}: ${data.phone}\n${labels.em}: ${data.email}\n${labels.t}: ${data.type}\n${labels.c}: ${data.city}\n${labels.b}: ${data.budget||'-'}\n${labels.d}: ${data.details||'-'}`;
+      const wa=`https://wa.me/971502402894?text=${encodeURIComponent(msg)}`;window.open(wa,'_blank');
+      const subject=encodeURIComponent(labels.q+' - website');const body=encodeURIComponent(msg);window.location.href=`mailto:Newcastles.ae@gmail.com?subject=${subject}&body=${body}`;form.reset();});}
+    // ===== i18n =====
+    const dict={ar:{metaTitle:"New Castle | مقاولات وصيانة في أبوظبي منذ 2008",metaDesc:"مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم، بأعلى معايير السلامة والجودة. Since 2008.",nav:{home:"الرئيسية",about:"من نحن",services:"الخدمات",projects:"المشاريع",partners:"الشركاء",qhse:"الجودة والاستدامة",careers:"التوظيف",insights:"المدونة",contact:"تواصل"},hero:{title:"نبني الثقة ونسلّم الجودة منذ 2008",subtitle:"مقاولات عامة وصيانة في أبوظبي — حلول متكاملة من التصميم حتى التسليم، بأعلى معايير السلامة والجودة."},values:{v1:"خبرة موثوقة",v2:"تسليم في الوقت",v3:"جودة بلا تنازل",v4:"سلامة أولاً",v5:"تنسيق شفاف"},about:{title:"من نحن",body:"تأسست نيو كاسل عام 2008 لتقديم حلول إنشائية وصيانة عالية الاعتمادية للقطاعات السكنية والتجارية والصناعية في أبوظبي، عبر فريق محترف وشراكات هندسية راسخة.",sectors:{r:"سكني",c:"تجاري",i:"صناعي"},vision:{h:"الرؤية",p:"قيادة موثوقة في الإنشاءات والصيانة مع الابتكار والجودة."},mission:{h:"الرسالة",p:"حلول تعاقدية فعّالة من حيث التكلفة، في الوقت، مستدامة، وتتجاوز التوقعات."},values:{h:"القيم",v1:"النزاهة والشفافية",v2:"الالتزام بالجودة",v3:"التسليم في الوقت",v4:"السلامة أولاً",v5:"رضا العملاء"}},services:{title:"الخدمات",s1:{h:"المقاولات العامة",p:"تنفيذ كامل لفلل/مكاتب/مخازن من الأساسات حتى التسليم."},s2:{h:"الصيانة والتجديد",p:"خطط صيانة وقائية/تصحيحية وتجديد شامل."},s3:{h:"الطرق والبنية التحتية",p:"حفريات وتمديدات وطبقات وتصريف."},s4:{h:"مرافق النفط والغاز",p:"مدني/كهرباء/ميكانيك وفق اشتراطات السلامة."},s5:{h:"التشطيبات والديكور",p:"تصميم وتنفيذ تشطيبات راقية للسكني/التجاري."}},projects:{title:"المشاريع",cta:"عرض دراسة حالة",items:{mbz:{title:"فيلا سكنية – مدينة محمد بن زايد",meta:"الاستشاري: Al Itqan"},w25:{title:"مجلس خارجي وتمديد غرفة – West 25",meta:"الاستشاري: Eastern Architecture"},bahia:{title:"فيلا – الباهية",meta:"الاستشاري: Al Khail"},m36:{title:"مبنى مكاتب ومحلات – M36",meta:"الاستشاري: Dar Al-Handasah"}}},partners:{title:"شركاء النجاح"},qhse:{title:"الجودة والسلامة والاستدامة",b1:"سلامة أولاً عبر أنظمة وإجراءات ميدانية معتمدة.",b2:"رقابة جودة صارمة من التخطيط حتى التسليم.",b3:"شفافية وتقارير دورية وتنسيق كامل مع العميل.",b4:"مسؤولية بيئية وممارسات مستدامة."},quote:{title:"اطلب عرض سعر"},form:{name:"الاسم الكامل",phone:"رقم الهاتف (UAE)",email:"البريد الإلكتروني",type:"نوع المشروع",city:"المدينة",budget:"الميزانية التقريبية",details:"وصف مختصر",files:"ملفات/رسومات (اختياري)",submit:"إرسال الطلب",note:"يرسل الطلب إلى البريد ويُنشئ رسالة واتساب تلقائياً. محمي بـ reCAPTCHA (للتهيئة لاحقاً).",types:{villa:"فيلا",office:"مكتب",wh:"مستودع",renov:"تجديد/صيانة",infra:"بنية تحتية"},err:"يرجى تعبئة الحقول المطلوبة."},careers:{title:"التوظيف",body:"نبحث عن مهندسين ومشرفين وفنيين متميزين. أرسل السيرة إلى البريد مع عنوان الوظيفة.",cta:"إرسال السيرة",b1:"بيئة آمنة تركّز على الجودة.",b2:"تطوير مهني وفرص قيادة.",b3:"مشاريع متنوعة: سكني/تجاري/صناعي."},insights:{title:"المدونة",p1:"كيف نضمن التسليم في الوقت؟ منهجية إدارة المشاريع لدينا.",p2:"سلامة الموقع أولاً: إجراءاتنا الميدانية.",p3:"تجديد فلل فاخرة: قبل/بعد."},contact:{title:"تواصل معنا",addressLabel:"العنوان:",phoneLabel:"الهاتف:",address:"UAE, Abu Dhabi"},footer:{since:"Since 2008"},cta:{quote:"اطلب عرض سعر",contact:"تواصل الآن",whatsapp:"واتساب"},filters:{all:"الكل",res:"سكني",com:"تجاري",ind:"صناعي"}},
+      en:{metaTitle:"New Castle | Contracting & Maintenance in Abu Dhabi since 2008",metaDesc:"Integrated contracting & maintenance in Abu Dhabi—from design to handover with uncompromising safety and quality. Since 2008.",nav:{home:"Home",about:"About",services:"Services",projects:"Projects",partners:"Partners",qhse:"QHSE & Sustainability",careers:"Careers",insights:"Insights",contact:"Contact"},hero:{title:"Building Trust, Delivering Quality Since 2008",subtitle:"Integrated contracting & maintenance in Abu Dhabi—from design to handover with uncompromising safety and quality."},values:{v1:"Trusted Experience",v2:"On-Time Delivery",v3:"Uncompromising Quality",v4:"Safety First",v5:"Transparent Coordination"},about:{title:"About Us",body:"Established in 2008, New Castle delivers reliable construction and maintenance solutions across residential, commercial, and industrial sectors in Abu Dhabi, powered by a professional team and strong engineering partnerships.",sectors:{r:"Residential",c:"Commercial",i:"Industrial"},vision:{h:"Vision",p:"Trusted leadership in construction & maintenance with innovation and quality."},mission:{h:"Mission",p:"Cost-effective, on-time, sustainable contracting solutions that exceed expectations."},values:{h:"Values",v1:"Integrity & Transparency",v2:"Commitment to Quality",v3:"On-Time Delivery",v4:"Safety First",v5:"Customer Satisfaction"}},services:{title:"Services",s1:{h:"General Contracting",p:"End-to-end delivery for villas/offices/warehouses."},s2:{h:"Building Maintenance & Renovation",p:"Preventive/corrective plans and full renovations."},s3:{h:"Roads & Infrastructure Works",p:"Excavation, utilities, layers, and drainage."},s4:{h:"Oil & Gas Facilities Services",p:"Civil/Electrical/Mechanical to strict safety standards."},s5:{h:"Fit-Out & Specialized Works (Décor)",p:"High-end finishes for residential & commercial spaces."}},projects:{title:"Projects",cta:"View Case Study",items:{mbz:{title:"Residential Villa – MBZ City",meta:"Consultant: Al Itqan"},w25:{title:"Outdoor Majlis & Bedroom Extension – West 25",meta:"Eastern Architecture"},bahia:{title:"Villa – Al Bahia",meta:"Consultant: Al Khail"},m36:{title:"Office Building & Shops – Area M36",meta:"Dar Al-Handasah"}}},partners:{title:"Partners"},qhse:{title:"QHSE & Sustainability",b1:"Safety first via field-tested procedures.",b2:"Strict quality control from design to handover.",b3:"Transparent reporting and full client coordination.",b4:"Environmental responsibility and sustainable practices."},quote:{title:"Get a Quote"},form:{name:"Full Name",phone:"Phone (UAE)",email:"Email",type:"Project Type",city:"City",budget:"Estimated Budget",details:"Brief Details",files:"Files/Drawings (optional)",submit:"Submit Request",note:"We’ll send your request by email and open WhatsApp automatically. reCAPTCHA to be configured.",types:{villa:"Villa",office:"Office",wh:"Warehouse",renov:"Renovation/Maintenance",infra:"Infrastructure"},err:"Please fill required fields."},careers:{title:"Careers",body:"We hire outstanding engineers, supervisors, and technicians. Email your CV with the job title.",cta:"Send your CV",b1:"Safe, quality-focused environment.",b2:"Professional development & leadership opportunities.",b3:"Diverse projects: residential/commercial/industrial."},insights:{title:"Insights",p1:"How we deliver on-time: our PM methodology.",p2:"Site safety first: our field procedures.",p3:"Luxury villa renovations: before & after."},contact:{title:"Contact Us",addressLabel:"Address:",phoneLabel:"Phone:",address:"UAE, Abu Dhabi"},footer:{since:"Since 2008"},cta:{quote:"Get a Quote",contact:"Contact Us",whatsapp:"WhatsApp"},filters:{all:"All",res:"Residential",com:"Commercial",ind:"Industrial"}}};
+    let currentDict=dict.ar;
+    function applyI18n(lang='ar'){currentDict=dict[lang];document.documentElement.lang=lang;document.documentElement.dir=(lang==='ar')?'rtl':'ltr';document.title=currentDict.metaTitle;const md=document.querySelector('meta[name="description"]');if(md)md.setAttribute('content',currentDict.metaDesc);document.querySelectorAll('[data-i18n]').forEach(el=>{const path=el.dataset.i18n.split('.');let val=currentDict;path.forEach(k=>{if(val)val=val[k];});if(typeof val==='string')el.textContent=val;});}
+    applyI18n('ar');
+    document.querySelectorAll('.lang-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyI18n(btn.dataset.lang);});});
+    document.querySelectorAll('#navMenu a').forEach(a=>{a.addEventListener('click',()=>navMenu.classList.remove('show'));});
+  </script>
 </body>
 </html>
