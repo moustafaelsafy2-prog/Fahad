@@ -41,8 +41,7 @@ function applyI18n(lang='ar'){
 
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const path = el.dataset.i18n.split('.');
-    let v = current;
-    path.forEach(k=>{ if(v) v = v[k]; });
+    let v = current; path.forEach(k=>{ if(v) v = v[k]; });
     if(typeof v === 'string') el.textContent = v;
   });
 
@@ -53,12 +52,12 @@ function applyI18n(lang='ar'){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  // nav mobile
+  // mobile nav
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.getElementById('navMenu');
   if(navToggle){ navToggle.addEventListener('click',()=> navMenu.classList.toggle('show')); }
 
-  // language
+  // language switching
   document.querySelectorAll('.lang-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
       document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
-  // filters
+  // project filters
   const chips = document.querySelectorAll('.chip'); const cards = document.querySelectorAll('.project-card');
   chips.forEach(ch=> ch.addEventListener('click',()=>{
     chips.forEach(c=>c.classList.remove('active')); ch.classList.add('active');
@@ -81,7 +80,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
-  // form
+  // lead form
   const form = document.getElementById('leadForm');
   if(form){
     form.addEventListener('submit',e=>{
